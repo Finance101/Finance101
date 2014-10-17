@@ -32,11 +32,12 @@ class TransactionsController extends \BaseController {
 	public function store()
 	{
 		$validator = Validator::make($data = Input::all(), Transaction::$rules);
-
 		if ($validator->fails())
 		{
 			return Redirect::back()->withErrors($validator)->withInput();
 		}
+		
+		$data['user_id'] = Auth::id();
 
 		Transaction::create($data);
 

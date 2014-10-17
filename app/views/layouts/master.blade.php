@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 
     <!-- Custom CSS -->
-    <link href="/blog-post/css/blog-post.css" rel="stylesheet">
+    <link href="/css/finance.css" rel="stylesheet">
 
 </head>
 
@@ -29,7 +29,6 @@
 
             <!-- Blog Sidebar Widgets Column -->
             <div class="col-xs-6 col-md-4">
-            {{ Form::open(array('action' => 'PostsController@index', 'class' => 'form-horizontal', 'method'=> 'GET')) }}
 <!-- {{$errors->has('title') ? 'has-error' : '' }} ternary-->
                <label for="search">search: </label>
                <input type="text" name="search" id="search"placeholder="search" value="{{{ Input::old('search') }}}" class= "form-control"> 
@@ -87,7 +86,9 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="/js/bootstrap.min.js"></script>
-    @yield('bottom-script')
+    <script type="text/javascript">
+        @yield('bottom-script')
+    </script>
 
 </body>
 

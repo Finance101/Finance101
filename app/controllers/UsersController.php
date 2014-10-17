@@ -40,7 +40,7 @@ class UsersController extends \BaseController {
 
 		User::create($data);
 
-		return Redirect::route('users.index');
+		return Redirect::action('users.show');
 	}
 
 	/**

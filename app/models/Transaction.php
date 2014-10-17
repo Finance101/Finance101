@@ -3,18 +3,13 @@
 class Transaction extends Eloquent {
 
 	protected $table = 'transactions';
+
+	protected $fillable = array('title', 'amount', 'type', 'frequency');
+	
 	public static $rules = array(
-
-		// 'name'		 => 'required|between:1,10',
-			'name'      => 'required|max:255',
-    		'credit'       => 'required|max:5000',
-    		'credit'       => 'required|max:5000',
-    		//'email' => 'unique:users'
-
-
-		);
-
+		'title'      => 'required|max:255',
+		'type'       => 'required|max:5000'
+	);
 
 	public $timestamps = true;
-
 }

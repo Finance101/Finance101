@@ -35,10 +35,10 @@
                     
 
 
-                    @foreach ($posts as $post)
+                    @foreach ($transactions as $transaction)
                         
 
-                        <h3>Entry: {{ $post->id }} <span class="glyphicon glyphicon-time"></span> {{ $post->created_at->format(Post::DATE_FORMAT) }} </h3>
+                        <h3>Entry: {{ $transaction->id }} <span class="glyphicon glyphicon-time"></span> {{ $transaction->created_at->format(Post::DATE_FORMAT) }} </h3>
                          
 
                 <div class="container">
@@ -46,17 +46,17 @@
                       <div class="col-md-8 col-md-8">
 
                         <div class="jumbotron">
-                        <h2> {{ $post->title }} </h2>
+                        <h2> {{ $transaction->name }} </h2>
 
-                        <h4>enter transaction --  {{ $post->body }}</h4>
+                        <h4>enter transaction --  {{ $transaction->debit }}</h4>
                         <!-- <h4><img src="{{{ $post->image }}}" alt="wall street">
                          </h4> --></jumbotron>
-                        {{ Form::open(array('action' => 'PostsController@store', 'class' => 'form-horizontal')) }}
+                        {{ Form::open(array('action' => 'TransactionsController@store', 'class' => 'form-horizontal')) }}
 
                             
-                            <textarea class="form-control" input type="textarea" name="comment" id="comment" placeholder="comment" value="{{{ Input::old('comment') }}}"></textarea>
+                            <!-- <textarea class="form-control" input type="textarea" name="comment" id="comment" placeholder="comment" value="{{{ Input::old('comment') }}}"></textarea> -->
 
-                            {{$errors->first('comment', '<span class="help-block">:message</span>')}}
+                            <!-- {{$errors->first('comment', '<span class="help-block">:message</span>')}} -->
 
                         <p>{{{""}}}</p>
                         <button type="submit" class="btn btn-primary">Submit</button>
@@ -67,12 +67,12 @@
                   </div>
                 </div>
                         
-                        <p><span class="glyphicon glyphicon-time"></span>-- last updated {{ $post->updated_at->format(Post::DATE_FORMAT)}}-- <button><a href="{{{action('PostsController@edit', $post->id)}}}">Edit/Delete</a></button></p>
-
+                        <!-- <p><span class="glyphicon glyphicon-time"></span>-- last updated {{ $transaction->updated_at->format(Post::DATE_FORMAT)}}-- <button><a href="{{{action('TransactionsController@edit', $post->id)}}}">Edit/Delete</a></button></p>
+ -->
                         
 
                     @endforeach
-                    {{ $posts->links() }}
+                    <!-- {{ $transactions->links() }} -->
 
                     @stop
 

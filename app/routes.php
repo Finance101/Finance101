@@ -17,3 +17,5 @@ Route::get('/', function()
 });
 
 Route::resource('transactions', 'TransactionsController');
+
+Route::resource('users', 'UsersController');

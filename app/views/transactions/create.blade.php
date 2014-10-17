@@ -11,16 +11,18 @@
 
                    <div class="jumbotron">
 
-                        <div class="progress progress-striped active">
-                			<div class="progress-bar progress-success">
-                			</div>
-            			</div>
+                        <div class="progress">
+						  <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+						    60%
+						  </div>
+						</div>
                         
                         {{ Form::open(array('action' => 'TransactionsController@store', 'class' => 'form-horizontal')) }}
 
 	                        {{ Form::text('title', null, array('placeholder' => 'Enter title...')) }}
 	                        
 	                        {{ Form::select('frequency', array(
+	                        	'' => 'Frequency',
 	                        	'daily' => 'Daily',
 	                        	'weekly' => 'Weekly',
 	                        	'monthly' => 'Monthly'
@@ -43,7 +45,7 @@
                         <button type="submit" class="btn btn-primary">Submit</button>
                         {{ Form::close() }} 
  					</div>
- 				
+
 					@stop
 
 

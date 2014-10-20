@@ -22,6 +22,16 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 		'email' => 'required|max:250',
 		'password' => 'required|max:250'
 	);
+
+	public function balance()
+    {
+        return $this->hasMany('Balance');
+    }
+
+    public function transaction()
+    {
+        return $this->hasMany('Transaction');
+    }
 	
 	protected $fillable = array('first_name', 'last_name', 'email', 'password');
 

@@ -4,7 +4,7 @@ class Transaction extends Eloquent {
 
 	protected $table = 'transactions';
 
-	protected $fillable = array('title', 'amount', 'type', 'frequency');
+	protected $fillable = array('title', 'amount', 'type', 'frequency', 'user_id');
 	
 	public static $rules = array(
 		'title'      => 'required|max:255',

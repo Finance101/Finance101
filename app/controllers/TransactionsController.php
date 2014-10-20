@@ -7,6 +7,14 @@ class TransactionsController extends \BaseController {
 	 *
 	 * @return Response
 	 */
+	public function __construct()
+	{
+	    // call base controller constructor
+	    parent::__construct();
+
+	    $this->beforeFilter('auth.basic', array('except' => array()));
+	}
+
 	public function index()
 	{
 		$transactions = Transaction::all();

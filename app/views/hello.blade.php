@@ -1,5 +1,7 @@
 @extends('layouts.master')
 
+@section('title', 'Finance101')
+
 @section('content')
-	<h1>Index of transactions goes here</h1>
+	<h1>Hello</h1>
 @stop

@@ -11,11 +11,14 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('hello');
-});
+Route::get('/', 'HomeController@showWelcome');
 
 Route::resource('transactions', 'TransactionsController');
 
 Route::resource('users', 'UsersController');
+
+Route::get('/login', 'HomeController@showLogin');
+
+Route::get('/logout', 'HomeController@doLogout');
+
+Route::post('/login', 'HomeController@doLogin');

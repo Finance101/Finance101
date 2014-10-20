@@ -15,6 +15,8 @@ Route::get('/', 'HomeController@showWelcome');
 
 Route::resource('transactions', 'TransactionsController');
 
+Route::get('/users/{id}/forecast', 'UsersController@forecast');
+
 Route::resource('users', 'UsersController');
 
 Route::get('/login', 'HomeController@showLogin');

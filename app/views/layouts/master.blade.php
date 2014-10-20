@@ -19,6 +19,7 @@
 
 		@else
 			<li><a href="{{ action('HomeController@showLogin') }}">Login</a></li>
+			<li><a href="{{ action('UsersController@create') }}">Register</a></li>
 		@endif
 	</ul>
     @yield('content')

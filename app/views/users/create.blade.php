@@ -7,12 +7,15 @@
 		</div>
 	</div>
 
-	{{ Form::open() }}
-		{{ Form::text('email', null, array('placeholder' => 'Enter your eMail...')) }}
-		{{ Form::text('password', null, array('placeholder' => 'Enter your password')) }}
-		{{ Form::text('password_check', null, array('placeholder' => 'Enter your password')) }}
+	{{ Form::open(array('action' => 'UsersController@store')) }}
 		{{ Form::text('first_name', null, array('placeholder' => 'Enter your first name')) }}
+		
+		{{ Form::password('password', null, array('placeholder' => 'Enter your password')) }}
+				
 		{{ Form::text('last_name', null, array('placeholder' => 'Enter your last name')) }}
+		
+		{{ Form::text('email', null, array('placeholder' => 'Enter your eMail...')) }}
+		
 		{{ Form::submit() }}
 	{{ Form::close() }}
 @stop

@@ -47,7 +47,39 @@ class TransactionsController extends \BaseController {
 		
 		$data['user_id'] = Auth::id();
 
+		var_dump(Auth::id());
+
+		$user = User::with('transaction', 'balance')->find(Auth::id());
+		
 		Transaction::create($data);
+		
+		$approx_daily = 0;
+		
+		foreach ($user->transaction as $transaction) {
+						
+			switch($transaction->frequency) {
+				case 'monthly':
+					$simplified = $transaction->amount * 12 / 365;
+					break;
+				case 'weekly':
+					$simplified = $transaction->amount * 52 / 365;
+					break;
+				case 'daily':
+					$simplified = $transaction->amount;
+					break;
+			}
+					
+			if ($transaction->type == 'credit') {
+				$approx_daily += $simplified;
+			} else {
+				$approx_daily -= $simplified;
+			}
+
+			$user->approx_daily_change = $approx_daily;
+
+			$user->save();
+		}
+
 
 		return Redirect::route('transactions.index');
 	}

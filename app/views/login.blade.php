@@ -8,7 +8,7 @@
 	  <div id="login-page">
 	  	<div class="container">
 	  	
-		      	{{ Form::open(array('action' => 'HomeController@doLogin', 'class'=>'form-login')) }}
+		      {{ Form::open(array('action' => 'HomeController@doLogin', 'class'=>'form-login')) }}
 		        <h2 class="form-login-heading">sign in now</h2>
 		        <div class="login-wrap">
 		        	{{ Form::text('email', Input::old('email'), array('class'=>'form-control', 'placeholder' => 'User E-mail')) }}

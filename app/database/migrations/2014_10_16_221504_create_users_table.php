@@ -15,6 +15,7 @@ class CreateUsersTable extends Migration {
 		    $table->string('last_name');
 		    $table->string('password', 255);
 		    $table->string('remember_token', 100)->nullable();
+		    $table->integer('approx_daily_change');
 		});
 	}
 

@@ -15,7 +15,13 @@ Route::get('/', 'HomeController@showWelcome');
 
 Route::resource('transactions', 'TransactionsController');
 
+Route::get('/users/{id}/forecast', 'UsersController@forecast');
+
 Route::resource('users', 'UsersController');
+
+Route::resource('simulatons', 'SimulationsController');
+
+Route::resource('savings', 'SavingsController');
 
 Route::get('/login', 'HomeController@showLogin');
 

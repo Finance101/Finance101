@@ -11,5 +11,10 @@ class Transaction extends Eloquent {
 		'type'       => 'required|max:5000'
 	);
 
+	public function user()
+    {
+        return $this->belongsTo('User');
+    }
+    
 	public $timestamps = true;
 }

@@ -19,6 +19,10 @@ Route::get('/users/{id}/forecast', 'UsersController@forecast');
 
 Route::resource('users', 'UsersController');
 
+Route::resource('simulatons', 'SimulationsController');
+
+Route::resource('savings', 'SavingsController');
+
 Route::get('/login', 'HomeController@showLogin');
 
 Route::get('/logout', 'HomeController@doLogout');

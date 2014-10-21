@@ -1,0 +1,1 @@
+/vagrant/sites/finance101.dev/app/views/simulations/show.blade.php

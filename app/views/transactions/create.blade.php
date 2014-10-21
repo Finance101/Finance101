@@ -1,6 +1,7 @@
-@extends('layouts.master') 
+@extends('layouts.master')
 
 @section('content')
+
 	<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
 
 	<script type="text/javascript" src="/js/Chart.min.js"></script>

@@ -193,17 +193,24 @@
       <!--footer end-->
   </section>
 
-    <!-- js placed at the end of the document so the pages load faster -->
+    <!-- jQuery library -->
     <script src="/assets/js/jquery.js"></script>
+
+   <!--  jQuery library for bootstrap -->
     <script src="/assets/js/bootstrap.min.js"></script>
     <script src="/assets/js/jquery-ui-1.9.2.custom.min.js"></script>
+
+    <!-- jQuery library for touch response on mobile devices -->
     <script src="/assets/js/jquery.ui.touch-punch.min.js"></script>
+
+    <!-- jQuery library for side menu accordian  -->
     <script class="include" type="text/javascript" src="/assets/js/jquery.dcjqaccordion.2.7.js"></script>
+    
+    <!-- jQuery library for scroller -->
     <script src="/assets/js/jquery.scrollTo.min.js"></script>
     <script src="/assets/js/jquery.nicescroll.js" type="text/javascript"></script>
 
-
-    <!--common script for all pages-->
+    <!--jQuery library for responsive pages-->
     <script src="/assets/js/common-scripts.js"></script>
 
  

@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateSavingsTable extends Migration {
+class CreateGoalsTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,12 +12,12 @@ class CreateSavingsTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('savings', function(Blueprint $table)
+		Schema::create('goals', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->text('title');
-			$table->decimal('interest_rate', 10, 2);
 			$table->int('user_id');
+			$table->decimal('value', 10, 2); 
+			$table->text('title');
 			$table->timestamps();
 		});
 	}
@@ -30,7 +30,7 @@ class CreateSavingsTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('savings');
+		Schema::drop('goals');
 	}
 
 }

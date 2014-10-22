@@ -15,7 +15,9 @@ class CreateSimulationsTable extends Migration {
 		Schema::create('simulations', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->decimal user_id('approx_daily_value')->int();
+			$table->decimal('approx_daily_value', 10, 2);
+			$table->int('user_id')->unsigned();
+			$table->text('title');
 			$table->timestamps();
 		});
 	}

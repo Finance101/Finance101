@@ -23,9 +23,9 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 		'password' => 'required|max:250'
 	);
 
-	public function balance()
+	public function simulation()
     {
-        return $this->hasMany('Balance');
+        return $this->hasMany('Simulation');
     }
 
     public function transaction()

@@ -9,7 +9,7 @@ class SimulationsController extends \BaseController {
 	 */
 	public function index()
 	{
-		$simulations = Simulation::all();
+		$simulations = Simulation::with('transactions')::all();
 
 		return View::make('simulations.index', compact('simulations'));
 	}
@@ -41,6 +41,9 @@ class SimulationsController extends \BaseController {
 		Simulation::create($data);
 
 		return Redirect::route('simulations.index');
+
+
+		}
 	}
 
 	/**
@@ -89,6 +92,32 @@ class SimulationsController extends \BaseController {
 		$simulation->update($data);
 
 		return Redirect::route('simulations.index');
+
+		$approx_daily = 0;
+		
+		foreach ($user->transaction as $transaction) {
+						
+			switch($transaction->frequency) {
+				case 'monthly':
+					$simplified = $transaction->amount * 12 / 365;
+					break;
+				case 'weekly':
+					$simplified = $transaction->amount * 52 / 365;
+					break;
+				case 'daily':
+					$simplified = $transaction->amount;
+					break;
+			}
+					
+			if ($transaction->type == 'credit') {
+				$approx_daily += $simplified;
+			} else {
+				$approx_daily -= $simplified;
+			}
+
+			$user->approx_daily_change = $approx_daily;
+
+			$user->save();
 	}
 
 	/**

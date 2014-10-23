@@ -16,7 +16,7 @@ class CreateSimulationsTable extends Migration {
 		{
 			$table->increments('id');
 			$table->decimal('approx_daily_value', 10, 2);
-			$table->int('user_id')->unsigned();
+			$table->integer('user_id')->unsigned();
 			$table->text('title');
 			$table->timestamps();
 		});

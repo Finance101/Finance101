@@ -17,7 +17,7 @@ class CreateSavingsTable extends Migration {
 			$table->increments('id');
 			$table->text('title');
 			$table->decimal('interest_rate', 10, 2);
-			$table->int('user_id');
+			$table->integer('user_id')->unsigned();
 			$table->timestamps();
 		});
 	}

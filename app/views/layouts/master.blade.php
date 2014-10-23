@@ -97,6 +97,18 @@
                   <li class="sub-menu">
                       <a class="active" href="javascript:;" >
                           <i class="fa fa-exchange"></i>
+                          <span>Simulations</span>
+                      </a>
+                      <ul class="sub">
+                          <li>{{link_to_action('SimulationsController@create', 'New Simulation')}}</li>
+                          <li>{{link_to_action('SimulationsController@index', 'View All')}}</li>
+                          <li><a  href="panels.html">Panels</a></li>
+                      </ul>
+                  </li>
+
+                  <li class="sub-menu">
+                      <a class="active" href="javascript:;" >
+                          <i class="fa fa-exchange"></i>
                           <span>Transactions</span>
                       </a>
                       <ul class="sub">

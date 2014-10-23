@@ -29,7 +29,8 @@ class TransactionsController extends \BaseController {
 	 */
 	public function create()
 	{
-		return View::make('transactions.create');
+		$simulations = Simulation::all();
+		return  View::make('transactions.create', compact('simulations'));
 	}
 
 	/**
@@ -45,11 +46,14 @@ class TransactionsController extends \BaseController {
 			return Redirect::back()->withErrors($validator)->withInput();
 		}
 		
-		$data['user_id'] = Auth::id();
-
-		$data['sim_id'] = ;
-		
-		Transaction::create($data);
+		$transaction = new Transaction();
+		$transaction->title = Input::get('title');
+		$transaction->user_id = Auth::id();
+		$transaction->type = Input::get('type');
+		$transaction->amount = Input::get('amount');
+		$transaction->frequency = Input::get('frequency');
+		$transaction->simulation_id = Input::get('simulation_id');
+		$transaction->save();
 
 		return Redirect::route('transactions.index');
 	}

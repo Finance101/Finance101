@@ -47,6 +47,36 @@ class SimulationsController extends \BaseController {
 
 	}
 
+	public function storeTransactions()
+	{
+		$validator = Validator::make($data = Input::all(), Simulation::$rules);
+
+		$data['user_id'] =  Auth::id();
+
+		if ($validator->fails())
+		{
+			return Redirect::back()->withErrors($validator)->withInput();
+		}
+		
+
+		$validator = Validator::make($data = Input::all(), Transaction::$rules);
+		if ($validator->fails())
+		{
+			return Redirect::back()->withErrors($validator)->withInput();
+		}
+		
+		$transaction = new Transaction();
+		$transaction->title = Input::get('title');
+		$transaction->user_id = Auth::id();
+		$transaction->type = Input::get('type');
+		$transaction->amount = Input::get('amount');
+		$transaction->frequency = Input::get('frequency');
+		$transaction->simulation_id = Input::get('simulation_id');
+		$transaction->save();
+
+		return Redirect::route('transactions.index');
+	}
+
 
 	/**
 	 * Display the specified simulation.

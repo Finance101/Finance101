@@ -27,9 +27,10 @@ class TransactionsController extends \BaseController {
 	 *
 	 * @return Response
 	 */
-	public function create()
+	public function create($simulations_id = null)
 	{
-		return View::make('transactions.create');
+		$simulations = Simulation::all();
+		return  View::make('transactions.create')->with('simulations', $simulations);
 	}
 
 	/**
@@ -47,8 +48,6 @@ class TransactionsController extends \BaseController {
 		
 		$data['user_id'] = Auth::id();
 
-		$data['sim_id'] = ;
-		
 		Transaction::create($data);
 
 		return Redirect::route('transactions.index');

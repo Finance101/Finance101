@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateTransactionsTable extends Migration {
+class CreateSimulationsTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,15 +12,12 @@ class CreateTransactionsTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('transactions', function(Blueprint $table)
+		Schema::create('simulations', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->integer('simulation_id')->unsigned();
+			$table->decimal('approx_daily_value', 10, 2);
 			$table->integer('user_id')->unsigned();
-			$table->string('title');
-			$table->decimal('amount', 10, 2);
-			$table->string('type');
-			$table->string('frequency');
+			$table->text('title');
 			$table->timestamps();
 		});
 	}
@@ -33,7 +30,7 @@ class CreateTransactionsTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('transactions');
+		Schema::drop('simulations');
 	}
 
 }

@@ -32,8 +32,7 @@
 		            </div>
 		            <div class="registration">
 		                Don't have an account yet?<br/>
-		                {{link_to_action('UsersController@create', 'Create An Account')}}
-		                
+		                {{link_to_action('UsersController@create', 'Create An Account')}}		                
 		            </div>
 		
 		        </div>

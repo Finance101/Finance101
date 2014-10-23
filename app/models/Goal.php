@@ -1,6 +1,6 @@
 <?php
 
-class Saving extends \Eloquent {
+class Goal extends \Eloquent {
 
 	// Add your validation rules here
 	public static $rules = [

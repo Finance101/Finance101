@@ -15,6 +15,11 @@ class Transaction extends Eloquent {
     {
         return $this->belongsTo('User');
     }
+
+    public function transaction()
+    {
+    	return $this->belongsTo('Simulation');
+    }
     
 	public $timestamps = true;
 }

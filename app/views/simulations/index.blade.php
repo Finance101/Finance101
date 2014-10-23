@@ -1,1 +1,7 @@
-/vagrant/sites/finance101.dev/app/views/simulations/index.blade.php
+@extends('layouts.master')
+
+@section('content')
+	@foreach($simulations as $simulation)
+		<a href="{{ action('SimulationsController@show', $simulation->id) }}">{{{ $simulation->title }}}</a>
+	@endforeach
+@stop

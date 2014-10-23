@@ -13,18 +13,18 @@
 
 Route::get('/', 'HomeController@showWelcome');
 
+Route::get('/login', 'HomeController@showLogin');
+
+Route::resource('simulations', 'SimulationsController');
+
 Route::resource('transactions', 'TransactionsController');
-
-Route::get('/users/{id}/forecast', 'UsersController@forecast');
-
-Route::resource('users', 'UsersController');
-
-Route::resource('simulatons', 'SimulationsController');
 
 Route::resource('savings', 'SavingsController');
 
-Route::get('/login', 'HomeController@showLogin');
+Route::resource('users', 'UsersController');
 
 Route::get('/logout', 'HomeController@doLogout');
 
 Route::post('/login', 'HomeController@doLogin');
+
+Route::resource('goals', 'GoalsController');

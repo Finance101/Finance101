@@ -1,1 +1,9 @@
-/vagrant/sites/finance101.dev/app/views/simulations/show.blade.php
+@extends('layouts.master')
+
+@section('content')
+	<h1>{{{ $simulation->title }}}</h1
+
+	@foreach($simulation->transactions as $transaction)
+		<h2>$transaction->title</h2>
+	@endforeach
+@stop

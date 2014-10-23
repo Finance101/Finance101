@@ -15,11 +15,11 @@ class CreateTransactionsTable extends Migration {
 		Schema::create('transactions', function(Blueprint $table)
 		{
 			$table->increments('id');
+			$table->integer('simulation_id')->unsigned();
+			$table->integer('user_id')->unsigned();
 			$table->string('title');
 			$table->decimal('amount', 10, 2);
-			$table->integer('sim_id')->unsigned();
-			$table->integer('user_id')->unsigned();
-			$table->text('type');
+			$table->string('type');
 			$table->string('frequency');
 			$table->timestamps();
 		});

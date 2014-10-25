@@ -3,5 +3,5 @@
 @section('title', 'Finance101')
 
 @section('content')
-Hello
+	<small>Hello</small>
 @stop

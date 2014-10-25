@@ -10,10 +10,10 @@
 	{{ Form::open(array('action' => 'UsersController@store')) }}
 		{{ Form::text('first_name', null, array('placeholder' => 'Enter your first name')) }}
 		
-		{{ Form::password('password', null, array('placeholder' => 'Enter your password')) }}
-				
 		{{ Form::text('last_name', null, array('placeholder' => 'Enter your last name')) }}
 		
+		{{ Form::password('password', null, array('placeholder' => 'Enter your password')) }}
+				
 		{{ Form::text('email', null, array('placeholder' => 'Enter your eMail...')) }}
 		
 		{{ Form::submit() }}

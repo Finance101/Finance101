@@ -15,7 +15,9 @@ class CreateSavingsTable extends Migration {
 		Schema::create('savings', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->text interest_rate('title')->decimal user_id()->int();
+			$table->text('title');
+			$table->decimal('interest_rate', 10, 2);
+			$table->integer('user_id')->unsigned();
 			$table->timestamps();
 		});
 	}

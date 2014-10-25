@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateSimulationsTable extends Migration {
+class CreateGoalsTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,11 +12,11 @@ class CreateSimulationsTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('simulations', function(Blueprint $table)
+		Schema::create('goals', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->decimal('approx_daily_value', 10, 2);
 			$table->integer('user_id')->unsigned();
+			$table->decimal('value', 10, 2); 
 			$table->text('title');
 			$table->timestamps();
 		});
@@ -30,7 +30,7 @@ class CreateSimulationsTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('simulations');
+		Schema::drop('goals');
 	}
 
 }

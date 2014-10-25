@@ -21,6 +21,26 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+    <!-- jQuery library -->
+    <script src="/assets/js/jquery.js"></script>
+
+    <!--  jQuery library for bootstrap -->
+    <script src="/assets/js/bootstrap.min.js"></script>
+    <script src="/assets/js/jquery-ui-1.9.2.custom.min.js"></script>
+
+    <!-- jQuery library for touch response on mobile devices -->
+    <script src="/assets/js/jquery.ui.touch-punch.min.js"></script>
+
+    <!-- jQuery library for side menu accordian  -->
+    <script class="include" type="text/javascript" src="/assets/js/jquery.dcjqaccordion.2.7.js"></script>
+    
+    <!-- jQuery library for scroller -->
+    <script src="/assets/js/jquery.scrollTo.min.js"></script>
+    <script src="/assets/js/jquery.nicescroll.js" type="text/javascript"></script>
+
+    <!--jQuery library for responsive pages-->
+    <script src="/assets/js/common-scripts.js"></script>
   </head>
   <body>
 
@@ -92,6 +112,18 @@
                           <i class="fa fa-dashboard"></i>
                           <span>Dashboard</span>
                       </a>
+                  </li>
+
+                  <li class="sub-menu">
+                      <a class="active" href="javascript:;" >
+                          <i class="fa fa-exchange"></i>
+                          <span>Simulations</span>
+                      </a>
+                      <ul class="sub">
+                          <li>{{link_to_action('SimulationsController@create', 'New Simulation')}}</li>
+                          <li>{{link_to_action('SimulationsController@index', 'View All')}}</li>
+                          <li><a  href="panels.html">Panels</a></li>
+                      </ul>
                   </li>
 
                   <li class="sub-menu">
@@ -192,28 +224,6 @@
       </footer>
       <!--footer end-->
   </section>
-
-    <!-- jQuery library -->
-    <script src="/assets/js/jquery.js"></script>
-
-   <!--  jQuery library for bootstrap -->
-    <script src="/assets/js/bootstrap.min.js"></script>
-    <script src="/assets/js/jquery-ui-1.9.2.custom.min.js"></script>
-
-    <!-- jQuery library for touch response on mobile devices -->
-    <script src="/assets/js/jquery.ui.touch-punch.min.js"></script>
-
-    <!-- jQuery library for side menu accordian  -->
-    <script class="include" type="text/javascript" src="/assets/js/jquery.dcjqaccordion.2.7.js"></script>
-    
-    <!-- jQuery library for scroller -->
-    <script src="/assets/js/jquery.scrollTo.min.js"></script>
-    <script src="/assets/js/jquery.nicescroll.js" type="text/javascript"></script>
-
-    <!--jQuery library for responsive pages-->
-    <script src="/assets/js/common-scripts.js"></script>
-
- 
 
   </body>
 </html>

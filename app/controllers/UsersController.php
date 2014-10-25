@@ -45,7 +45,7 @@ class UsersController extends \BaseController {
 		$user->password = Hash::make(Input::get('password'));
 		$user->save();
 
-		return Redirect::action('users.index');
+		return Redirect::action('HomeController@showLogin');
 	}
 
 	/**
@@ -108,34 +108,4 @@ class UsersController extends \BaseController {
 
 		return Redirect::route('users.index');
 	}
-
-	public function forecast ($id) 
-	{
-		$user = User::with('transaction', 'balance')->find($id);
-		
-		$approx_daily = 0;
-		
-		foreach ($user->transaction as $transaction) {
-						
-			switch($transaction->frequency) {
-				case 'monthly':
-					$simplified = $transaction->amount * 12 / 365;
-					break;
-				case 'weekly':
-					$simplified = $transaction->amount * 52 / 365;
-					break;
-				case 'daily':
-					$simplified = $transaction->amount;
-					break;
-			}
-					
-			if ($transaction->type == 'credit') {
-				$approx_daily += $simplified;
-			} else {
-				$approx_daily -= $simplified;
-			}
-		}
-		
-		return View::make('users.forecast')->with('user', $user)->with('approx_daily', $approx_daily);
-		}
-	}
+}

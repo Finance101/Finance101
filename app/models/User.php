@@ -23,9 +23,9 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 		'password' => 'required|max:250'
 	);
 
-	public function balance()
+	public function simulation()
     {
-        return $this->hasMany('Balance');
+        return $this->hasMany('Simulation');
     }
 
     public function transaction()
@@ -33,13 +33,13 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
         return $this->hasMany('Transaction');
     }
 	
-	protected $fillable = array('first_name', 'last_name', 'email', 'password');
+	protected $fillable = ['first_name', 'last_name', 'email', 'password'];
 
 	/**
 	 * The attributes excluded from the model's JSON form.
 	 *
 	 * @var array
 	 */
-	protected $hidden = array('password', 'remember_token');
+	protected $hidden = ['password', 'remember_token'];
 
 }

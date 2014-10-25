@@ -29,7 +29,8 @@ class TransactionsController extends \BaseController {
 	 */
 	public function create()
 	{
-		return View::make('transactions.create');
+		$simulations = Simulation::all();
+		return  View::make('transactions.create', compact('simulations'));
 	}
 
 	/**
@@ -45,17 +46,27 @@ class TransactionsController extends \BaseController {
 			return Redirect::back()->withErrors($validator)->withInput();
 		}
 		
-		$data['user_id'] = Auth::id();
+		$transaction = new Transaction();
 
-		var_dump(Auth::id());
+		$transaction->title = Input::get('title');
 
-		$user = User::with('transaction', 'balance')->find(Auth::id());
-		
-		Transaction::create($data);
-		
+		$transaction->user_id = Auth::id();
+
+		$transaction->type = Input::get('type');
+
+		$transaction->amount = Input::get('amount');
+
+		$transaction->frequency = Input::get('frequency');
+
+		$transaction->simulation_id = Input::get('simulation_id');
+
+		$transaction->save();
+
+		$simulation = Simulation::with('transaction')->findOrFail(Input::get('simulation_id'));
+
 		$approx_daily = 0;
 		
-		foreach ($user->transaction as $transaction) {
+		foreach ($simulation->transaction as $transaction) {
 						
 			switch($transaction->frequency) {
 				case 'monthly':
@@ -74,14 +85,15 @@ class TransactionsController extends \BaseController {
 			} else {
 				$approx_daily -= $simplified;
 			}
-
-			$user->approx_daily_change = $approx_daily;
-
-			$user->save();
 		}
 
+		$simulation->approx_daily_value = $approx_daily;
+	
+		$simulation->save();
 
-		return Redirect::route('transactions.index');
+		$simulations = Simulation::all();
+
+		return Redirect::route('simulations.index');
 	}
 
 	/**

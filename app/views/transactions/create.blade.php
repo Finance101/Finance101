@@ -1,7 +1,13 @@
 @extends('layouts.master')
 
 @section('content')
-
+	
+	<? 
+		foreach($simulations as $simulation) {	
+			$sim_ids_array[$simulation->id] = $simulation->title;
+    	}
+    ?>
+	
 	<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
 
 	<script type="text/javascript" src="/js/Chart.min.js"></script>
@@ -34,6 +40,8 @@
 		    ), array('placeholder' => 'Enter type...')) }}
 		    
 		    {{$errors->first('type', '<span class="help-block">:message</span>')}}
+		    	
+		    {{ Form::select('simulation_id', $sim_ids_array) }}
 		    
 		    {{ Form::submit() }}
 		{{ Form::close() }}

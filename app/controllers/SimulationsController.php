@@ -33,6 +33,8 @@ class SimulationsController extends \BaseController {
 	{
 		$validator = Validator::make($data = Input::all(), Simulation::$rules);
 
+		$data['user_id'] =  Auth::id();
+
 		if ($validator->fails())
 		{
 			return Redirect::back()->withErrors($validator)->withInput();
@@ -41,7 +43,10 @@ class SimulationsController extends \BaseController {
 		Simulation::create($data);
 
 		return Redirect::route('simulations.index');
+
+
 	}
+
 
 	/**
 	 * Display the specified simulation.
@@ -51,7 +56,7 @@ class SimulationsController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		$simulation = Simulation::findOrFail($id);
+		$simulation = Simulation::with('transaction')->findOrFail($id);
 
 		return View::make('simulations.show', compact('simulation'));
 	}
@@ -64,7 +69,7 @@ class SimulationsController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		$simulation = Simulation::find($id);
+		$simulation = Simulation::with('transactions')->find($id);
 
 		return View::make('simulations.edit', compact('simulation'));
 	}
@@ -87,7 +92,7 @@ class SimulationsController extends \BaseController {
 		}
 
 		$simulation->update($data);
-
+		
 		return Redirect::route('simulations.index');
 	}
 

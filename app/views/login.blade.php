@@ -32,7 +32,7 @@
 		            </div>
 		            <div class="registration">
 		                Don't have an account yet?<br/>
-		                <a class="" href="#">
+		                <a class="" href="{{ action('UsersController@create') }}">
 		                    Create an account
 		                </a>
 		            </div>

@@ -54,7 +54,7 @@
                   <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
               </div>
             <!--logo start-->
-           <strong>{{link_to_action('HomeController@showWelcome', 'Finance 101',array(),['class'=>'logo'])}}</strong>
+           <strong>{{link_to_action('HomeController@showGetStarted', 'Finance 101',array(),['class'=>'logo'])}}</strong>
             <!--logo end-->
             <div class="nav notify-row" id="top_menu">
                 <!--  notification start -->

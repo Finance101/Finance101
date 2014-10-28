@@ -11,7 +11,9 @@
 |
 */
 
-Route::get('/', 'HomeController@showWelcome');
+Route::get('/', 'HomeController@showGetStarted');
+
+Route::post('/', 'HomeController@createFirstBudget');
 
 Route::get('/login', 'HomeController@showLogin');
 

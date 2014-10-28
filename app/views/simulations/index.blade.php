@@ -2,6 +2,7 @@
 
 @section('content')
 	<script type="text/javascript" src="/js/highcharts.js"></script>
+	
 	<script type="text/javascript" src="/js/moment.min.js"></script>
 		
 	<table>
@@ -19,17 +20,11 @@
 	<div id="chartDisplay"></div>
 
 	<script type="text/javascript">
-		$('document').ready(function () {
-			var startDate = moment('{{{ $simulations[0]->user->created_at }}}');
-			console.log(startDate);
-
-			var endDate;
-
-			var distance;
-
-			var chart;
-						
-			var simulations = [];
+			var startDate = moment('{{{ $simulations[0]->user->created_at }}}'),
+				endDate,
+				distance,
+				chart,
+				simulations = [];
 				
 			@foreach($simulations as $simulation)
 				simulations.push({
@@ -42,34 +37,40 @@
 			$( "#toDatePicker" ).datepicker({ 
 		    	dateFormat: "yyyy-mm-dd",
 		    	onSelect: function() { 
-		        	var chartCategories = [];
-		        	var chartSeries = [];
-		        	var dayCount = []
+		    		const CHART_INTERVALS = 10;
+		        	var chartCategories = [],
+		        		chartSeries = [],
+		        		dayCount = [],
+		        		endDate,
+		        		distance;
+			        
 			        endDate = moment($(this).datepicker('getDate'));
 					// moment.js finds number of days from user's account creation date to projection date
 			        distance = endDate.diff(startDate, 'days');
 					// javascript creates twenty points to plot on chart.js line graph
-			        for(var i = 1; i <= distance; i += (distance / 20)) {
-						dayCount.push(Math.floor(i));
+			        for(var i = 1; i <= CHART_INTERVALS; i++) {
+						dayCount.push(Math.round(distance * i / CHART_INTERVALS));
 					}
 					
 					dayCount.forEach(function (day, index, array) {
-						console.log(day);
-						newDate = startDate.add(day, 'days');
-						console.log(newDate);
-						chartCategories.push(newDate);
+						var newDate = moment(startDate);
+						newDate.add(day, 'days');
+						// chartCategories.push(newDate.fromNow());
+						chartCategories.push(newDate.format('M-D-YY'));
+
 					});
 									
 					simulations.forEach(function (simulation, index, array) {
 						var dataPoints = [];
-						dayCount.forEach(function (category, index, array) {
-							dataPoints.push(simulation.approx_daily_value * category);
+						dayCount.forEach(function (day, index, array) {
+							dataPoints.push(simulation.approx_daily_value * day);
 						});
 						chartSeries.push({
 							'name' : simulation.title, 
 							'data' : dataPoints
 						});
 				    });
+				    
 				    $('#chartDisplay').highcharts({
 				        chart: {
 				            type: 'area'
@@ -97,6 +98,5 @@
 				    });
 			    }
 			});
-		});
 	</script>
 @stop

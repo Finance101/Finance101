@@ -41,6 +41,10 @@
 
     <!--jQuery library for responsive pages-->
     <script src="/assets/js/common-scripts.js"></script>
+
+    <!-- jQuery UI -->
+    <script type="text/javascript" src="https://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
   </head>
   <body>
 
@@ -88,10 +92,10 @@
             	<ul class="nav pull-right top-menu">
             		@if (Auth::check())
             		<li class="task-info">Welcome {{(Auth::user()->first_name)}}!!!!</li>
-            		<li>{{link_to_action('HomeController@doLogout', 'Logout',array(),['class'=>'logout'])}}</li>
+            		<li>{{link_to_action('AuthController@doLogout', 'Logout',array(),['class'=>'logout'])}}</li>
             		 
             		@else
-                   <li>{{link_to_action('HomeController@showLogin', 'Login',array(),['class'=>'logout'])}}</li>
+                   <li>{{link_to_action('AuthController@showLogin', 'Login',array(),['class'=>'logout'])}}</li>
                     @endif
 
             	</ul>

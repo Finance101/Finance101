@@ -2,12 +2,6 @@
 
 @section('content')
 
-<? 
-		foreach($simulations as $simulation) {	
-			$sim_ids_array[$simulation->id] = $simulation->title;
-    	}
-    ?>
-	
 	<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
 
 	<script type="text/javascript" src="/js/Chart.min.js"></script>
@@ -19,7 +13,7 @@
 		{{ Form::submit() }}
 	{{ Form::close() }}
 
-	{{ Form::open(array('action' => 'SimulationsController@storeTransactions', 'class' => 'form-horizontal')) }}
+	{{ Form::open(array('action' => 'TransactionsController@store', 'class' => 'form-horizontal')) }}
 		    {{ Form::text('title', Input::old('title'), array('placeholder' => 'Enter title...')) }}
 		   	
 		   	{{$errors->first('title', '<span class="help-block">:message</span>')}} 
@@ -44,7 +38,7 @@
 		    
 		    {{$errors->first('type', '<span class="help-block">:message</span>')}}
 		    	
-		    {{ Form::select('simulation_id', $sim_ids_array) }}
+		    {{ Form::select('simulation_id', array()) }}
 		    
 		    {{ Form::submit() }}
 		{{ Form::close() }}

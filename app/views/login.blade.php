@@ -1,66 +1,80 @@
-@extends('layouts.master')
+<!DOCTYPE html>
 
-@section('title', 'Login')
+<html lang="en" class="no-ie">
 
-@section('content')
-	
 
-	  <div id="login-page">
-	  	<div class="container">
-	  	
-		      {{ Form::open(array('action' => 'HomeController@doLogin', 'class'=>'form-login')) }}
-		        <h2 class="form-login-heading">sign in now</h2>
-		        <div class="login-wrap">
-		        	{{ Form::text('email', Input::old('email'), array('class'=>'form-control', 'placeholder' => 'User E-mail')) }}
-		            <br>
-		            {{ Form::password('password', array('class'=>'form-control', 'placeholder' => 'Password')) }}
-		            <label class="checkbox">
-		                <span class="pull-right">
-		                    <a data-toggle="modal" href="login.html#myModal"> Forgot Password?</a>
-		
-		                </span>
-		            </label>
-		            <button class="btn btn-theme btn-block" href="index.html" type="submit"><i class="fa fa-lock"></i> SIGN IN</button>
-		            	
-				{{ Form::close() }}
-		            <hr>
-		            
-		            <div class="login-social-link centered">
-		            <p>or you can sign in via your social network</p>
-		                <button class="btn btn-facebook" type="submit"><i class="fa fa-facebook"></i> Facebook</button>
-		                <button class="btn btn-twitter" type="submit"><i class="fa fa-twitter"></i> Twitter</button>
-		            </div>
-		            <div class="registration">
-		                Don't have an account yet?<br/>
-		                {{link_to_action('UsersController@create', 'Create An Account')}}		                
-		            </div>
-		
-		        </div>
-		
-		          <!-- Modal -->
-		          <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade">
-		              <div class="modal-dialog">
-		                  <div class="modal-content">
-		                      <div class="modal-header">
-		                          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-		                          <h4 class="modal-title">Forgot Password ?</h4>
-		                      </div>
-		                      <div class="modal-body">
-		                          <p>Enter your e-mail address below to reset your password.</p>
-		                          <input type="text" name="email" placeholder="Email" autocomplete="off" class="form-control placeholder-no-fix">
-		
-		                      </div>
-		                      <div class="modal-footer">
-		                          <button data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
-		                          <button class="btn btn-theme" type="button">Submit</button>
-		                      </div>
-		                  </div>
-		              </div>
-		          </div>
-		          <!-- modal -->
-		
-		      </form>	  	
-	  	
-	  	</div>
-	  </div>
-	  @stop
+<head>
+ 
+   <title>Login</title>
+   
+   <!-- Bootstrap CSS-->
+   <link rel="stylesheet" href="../app/css/bootstrap.css">
+   <!-- Vendor CSS-->
+   <link rel="stylesheet" href="../vendor/fontawesome/css/font-awesome.min.css">
+   <link rel="stylesheet" href="../vendor/animo/animate+animo.css">
+   <!-- App CSS-->
+   <link rel="stylesheet" href="../app/css/app.css">
+   <link rel="stylesheet" href="../app/css/common.css">
+   <!-- Modernizr JS Script-->
+   <script src="../vendor/modernizr/modernizr.js" type="application/javascript"></script>
+   <!-- FastClick for mobiles-->
+   <script src="../vendor/fastclick/fastclick.js" type="application/javascript"></script>
+</head>
+
+<body>
+   <!-- START wrapper-->
+   <div class="row row-table page-wrapper">
+      <div class="col-lg-3 col-md-6 col-sm-8 col-xs-12 align-middle">
+         <!-- START panel-->
+         <div data-toggle="play-animation" data-play="fadeIn" data-offset="0" class="panel panel-dark panel-flat">
+            <div class="panel-heading text-center">
+               <a href="#">
+                  <img src="../app/img/logo.png" alt="Image" class="block-center img-rounded">
+               </a>
+               <p class="text-center mt-lg">
+                  <strong>SIGN IN TO CONTINUE.</strong>
+               </p>
+            </div>
+            <div class="panel-body">
+
+            {{ Form::open(array('action' => 'HomeController@doLogin', 'class'=>'mb-lg', 'role'=>'form')) }}
+                   
+                   <div class="text-right mb-sm">{{link_to_action('UsersController@create', 'Need to Signup?')}}
+                  </div>
+                  <div class="form-group has-feedback">
+                     {{ Form::email('email', Input::old('email'), array('class'=>'form-control', 'placeholder' => 'Enter E-mail', 'id'=>'exampleInputEmail1')) }}
+                     <span class="fa fa-envelope form-control-feedback text-muted"></span>
+                  </div>
+                  <div class="form-group has-feedback">
+                     {{ Form::password('password', array('class'=>'form-control', 'placeholder' => 'Password', 'id'=>'exampleInputPassword1')) }}
+                     <span class="fa fa-lock form-control-feedback text-muted"></span>
+                  </div>
+                  <div class="clearfix">
+                     <div class="checkbox c-checkbox pull-left mt0">
+                        <label>
+                           <input type="checkbox" value="">
+                           <span class="fa fa-check"></span>Remember Me</label>
+                     </div>
+                     <div class="pull-right"><a href="#" class="text-muted">Forgot your password?</a>
+                     </div>
+                  </div>
+                  <button type="submit" class="btn btn-block btn-primary">Login</button>
+               {{ Form::close() }}
+            </div>
+         </div>
+         <!-- END panel-->
+      </div>
+   </div>
+   <!-- END wrapper-->
+   <!-- START Scripts-->
+   <!-- Main vendor Scripts-->
+   <script src="../vendor/jquery/jquery.min.js"></script>
+   <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+   <!-- Animo-->
+   <script src="../vendor/animo/animo.min.js"></script>
+   <!-- Custom script for pages-->
+   <script src="../app/js/pages.js"></script>
+   <!-- END Scripts-->
+</body>
+
+</html>

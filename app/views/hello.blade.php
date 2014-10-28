@@ -1,7 +1,5 @@
 @extends('layouts.master')
 
-@section('title', 'Finance101')
+@section('title', 'Login')
 
 @section('content')
-Hello
-@stop

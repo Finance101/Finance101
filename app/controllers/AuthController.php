@@ -129,11 +129,6 @@ class AuthController extends \BaseController {
 
 	        $message = 'Your unique facebook user id is: ' . $result['id'] . ' and your name is ' . $result['name'];
 	        echo $message. "<br/>";
-
-	        //Var_dump
-	        //display whole array().
-	        dd($result);
-
 	    }
 	    // if not ask for permission first
 	    else {

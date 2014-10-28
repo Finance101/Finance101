@@ -121,107 +121,56 @@
                   </a>
                </li>
                <li>
-                  <a href="/simulations" title="Widgets" data-toggle="" class="no-submenu">
-                     <em class="fa fa-flask"></em>
-                     <span class="item-text">Budget Simulator</span>
+                  <a href="#" title="Widgets" data-toggle="" class="no-submenu">
+                     <em class="fa fa-exchange"></em>
+                     <span class="item-text">Transactions</span>
                   </a>
                </li>
                <li>
-                  <a href="#" title="Elements" data-toggle="collapse-next" class="has-submenu">
+                  <a href="/simulations" title="Elements" data-toggle="collapse-next" class="has-submenu">
                      <em class="fa fa-flask"></em>
-                     <span class="item-text">Transactions</span>
+                     <span class="item-text">Budget Simulator</span>
                   </a>
                   <!-- START SubMenu item-->
                   <ul class="nav collapse ">
                      <li>
-                        <a href="button.html" title="Buttons" data-toggle="" class="no-submenu">
-                           <span class="item-text">Buttons</span>
+                        <a href="/simulations/create" title="Buttons" data-toggle="" class="no-submenu">
+                           <span class="item-text">New Budget</span>
                         </a>
                      </li>
                      <li>
                         <a href="notifications.html" title="Notifications" data-toggle="" class="no-submenu">
-                           <span class="item-text">Notifications</span>
+                           <span class="item-text">View All</span>
                         </a>
                      </li>
-                     <li>
-                        <a href="spinners.html" title="Spinners" data-toggle="" class="no-submenu">
-                           <span class="item-text">Spinners</span>
-                        </a>
-                     </li>
-                     <li>
-                        <a href="animations.html" title="Animations" data-toggle="" class="no-submenu">
-                           <span class="item-text">Animations</span>
-                        </a>
-                     </li>
-                     <li>
-                        <a href="dropdown-animations.html" title="Dropdown" data-toggle="" class="no-submenu">
-                           <span class="item-text">Dropdown</span>
-                        </a>
-                     </li>
-                     <li>
-                        <a href="panels.html" title="Panels" data-toggle="" class="no-submenu">
-                           <span class="item-text">Panels</span>
-                        </a>
-                     </li>
-                     <li>
-                        <a href="portlets.html" title="Portlets" data-toggle="" class="no-submenu">
-                           <span class="item-text">Portlets</span>
-                        </a>
-                     </li>
-                     <li>
-                        <a href="maps.html" title="Maps" data-toggle="" class="no-submenu">
-                           <span class="item-text">Maps</span>
-                        </a>
-                     </li>
-                     <li>
-                        <a href="grid.html" title="Grid" data-toggle="" class="no-submenu">
-                           <span class="item-text">Grid</span>
-                        </a>
-                     </li>
-                     <li>
-                        <a href="grid-masonry.html" title="Grid Masonry" data-toggle="" class="no-submenu">
-                           <span class="item-text">Grid Masonry</span>
-                        </a>
-                     </li>
-                     <li>
-                        <a href="typo.html" title="Typography" data-toggle="" class="no-submenu">
-                           <span class="item-text">Typography</span>
-                        </a>
-                     </li>
-                     <li>
-                        <a href="icons.html" title="Icons" data-toggle="" class="no-submenu">
-                           <div class="label label-primary pull-right">+400</div>
-                           <span class="item-text">Icons</span>
-                        </a>
-                     </li>
-                  </ul>
+                     </ul
                   <!-- END SubMenu item-->
                </li>
                <li>
                   <a href="#" title="Forms" data-toggle="collapse-next" class="has-submenu">
                      <em class="fa fa-edit"></em>
-                     <span class="item-text">Forms</span>
+                     <span class="item-text">Example</span>
                   </a>
                   <!-- START SubMenu item-->
                   <ul class="nav collapse ">
                      <li>
                         <a href="form-standard.html" title="Standard" data-toggle="" class="no-submenu">
-                           <span class="item-text">Standard</span>
+                           <span class="item-text">Example</span>
                         </a>
                      </li>
                      <li>
                         <a href="form-extended.html" title="Extended" data-toggle="" class="no-submenu">
-                           <span class="item-text">Extended</span>
+                           <span class="item-text">Example</span>
                         </a>
                      </li>
                      <li>
                         <a href="form-validation.html" title="Validation" data-toggle="" class="no-submenu">
-                           <span class="item-text">Validation</span>
+                           <span class="item-text">Example</span>
                         </a>
                      </li>
                      <li>
                         <a href="form-wizard.html" title="Wizard" data-toggle="" class="no-submenu">
-                           <span class="item-text">Wizard</span>
+                           <span class="item-text">Example</span>
                         </a>
                      </li>
                   </ul>
@@ -275,34 +224,14 @@
                <li class="nav-heading">More elements</li>
                <li>
                   <a href="#" title="Pages" data-toggle="collapse-next" class="has-submenu">
-                     <em class="fa fa-file-text-o"></em>
-                     <span class="item-text">Pages</span>
+                     <em class="fa fa-book"></em>
+                     <span class="item-text">Definitions</span>
                   </a>
                   <!-- START SubMenu item-->
                   <ul class="nav collapse ">
                      <li>
                         <a href="pages/login.html" title="Login" data-toggle="" class="no-submenu">
-                           <span class="item-text">Login</span>
-                        </a>
-                     </li>
-                     <li>
-                        <a href="pages/signup.html" title="Sign up" data-toggle="" class="no-submenu">
-                           <span class="item-text">Sign up</span>
-                        </a>
-                     </li>
-                     <li>
-                        <a href="pages/recover.html" title="Recover Password" data-toggle="" class="no-submenu">
-                           <span class="item-text">Recover Password</span>
-                        </a>
-                     </li>
-                     <li>
-                        <a href="pages/lock.html" title="Lock" data-toggle="" class="no-submenu">
-                           <span class="item-text">Lock</span>
-                        </a>
-                     </li>
-                     <li>
-                        <a href="template.html" title="Starter Template" data-toggle="" class="no-submenu">
-                           <span class="item-text">Starter Template</span>
+                           <span class="item-text">Example</span>
                         </a>
                      </li>
                   </ul>

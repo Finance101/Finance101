@@ -27,8 +27,8 @@
 		            
 		            <div class="login-social-link centered">
 		            <p>or you can sign in via your social network</p>
-		                <button class="btn btn-facebook" type="submit"><i class="fa fa-facebook"></i> Facebook</button>
-		                <button class="btn btn-twitter" type="submit"><i class="fa fa-twitter"></i> Twitter</button>
+		                <a class="btn btn-facebook" href="{{ action('AuthController@loginFacebook') }}"type="submit"><i class="fa fa-facebook"></i>Facebook</a>
+		                <a class="btn btn-twitter" type="submit"><i class="fa fa-twitter"></i> Twitter</a>
 		            </div>
 		            <div class="registration">
 		                Don't have an account yet?<br/>

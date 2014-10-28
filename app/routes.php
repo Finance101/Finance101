@@ -19,7 +19,7 @@ Route::get('/logout', 'AuthController@doLogout');
 
 Route::post('/login', 'AuthController@doLogin');
 
-// Route::get('/login/facebook', )
+Route::get('/login/facebook', 'AuthController@loginFacebook');
 
 // Route::get('/getstarted')
 

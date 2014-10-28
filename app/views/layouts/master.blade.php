@@ -221,11 +221,11 @@
                   </ul>
                   <!-- END SubMenu item-->
                </li>
-               <li class="nav-heading">More elements</li>
+               <li class="nav-heading">More tools</li>
                <li>
                   <a href="#" title="Pages" data-toggle="collapse-next" class="has-submenu">
                      <em class="fa fa-book"></em>
-                     <span class="item-text">Definitions</span>
+                     <span class="item-text">Glossary</span>
                   </a>
                   <!-- START SubMenu item-->
                   <ul class="nav collapse ">

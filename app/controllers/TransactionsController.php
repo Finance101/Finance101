@@ -12,7 +12,7 @@ class TransactionsController extends \BaseController {
 	    // call base controller constructor
 	    parent::__construct();
 
-	    $this->beforeFilter('auth.basic', array('except' => array()));
+	    $this->beforeFilter('auth', array('except' => array()));
 	}
 
 	public function index()

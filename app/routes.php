@@ -15,7 +15,15 @@ Route::get('/', 'HomeController@showGetStarted');
 
 Route::post('/', 'HomeController@createFirstBudget');
 
-Route::get('/login', 'HomeController@showLogin');
+Route::get('/login', 'AuthController@showLogin');
+
+Route::get('/logout', 'AuthController@doLogout');
+
+Route::post('/login', 'AuthController@doLogin');
+
+Route::get('/login/facebook', 'AuthController@loginFacebook');
+
+// Route::get('/getstarted')
 
 Route::resource('simulations', 'SimulationsController');
 
@@ -24,9 +32,5 @@ Route::resource('transactions', 'TransactionsController');
 Route::resource('savings', 'SavingsController');
 
 Route::resource('users', 'UsersController');
-
-Route::get('/logout', 'HomeController@doLogout');
-
-Route::post('/login', 'HomeController@doLogin');
 
 Route::resource('goals', 'GoalsController');

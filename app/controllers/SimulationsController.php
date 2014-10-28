@@ -2,14 +2,23 @@
 
 class SimulationsController extends \BaseController {
 
+	public function __construct()
+	{
+		// call base controller constructor
+		parent::__construct();
+
+		// run auth filter before all methods on this controller except index and show
+		$this->beforeFilter('auth', array('except' => array()));
+	}
 	/**
 	 * Display a listing of simulations
 	 *
 	 * @return Response
-	 */
+	 */	
+
 	public function index()
 	{
-		$simulations = Simulation::all();
+		$simulations = Simulation::with('user')->where('user_id', Auth::id())->get();
 
 		return View::make('simulations.index', compact('simulations'));
 	}
@@ -40,10 +49,17 @@ class SimulationsController extends \BaseController {
 			return Redirect::back()->withErrors($validator)->withInput();
 		}
 
-		Simulation::create($data);
+		$newSimulation = Simulation::create($data);
 
-		return Redirect::route('simulations.index');
-
+		if (Request::ajax()) {
+			return Response::json(array(
+				'success' => true,
+				'message' => '',
+				'sim_id' => $newSimulation->id
+			));
+		} else {
+			return Redirect::route('simulations.index');
+		}
 
 	}
 

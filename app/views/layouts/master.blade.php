@@ -326,16 +326,8 @@
    <script src="/vendor/store/store+json2.min.js"></script>
    <!-- ScreenFull-->
    <script src="/vendor/screenfull/screenfull.min.js"></script>
-   <!-- START Page Custom Script-->
-   <!--  Flot Charts-->
-   <script src="/vendor/flot/jquery.flot.min.js"></script>
-   <script src="/vendor/flot/jquery.flot.tooltip.min.js"></script>
-   <script src="/vendor/flot/jquery.flot.resize.min.js"></script>
-   <script src="/vendor/flot/jquery.flot.pie.min.js"></script>
-   <script src="/vendor/flot/jquery.flot.time.min.js"></script>
-   <script src="/vendor/flot/jquery.flot.categories.min.js"></script>
-   <!--[if lt IE 8]><script src="js/excanvas.min.js"></script><![endif]-->
-   <!-- END Page Custom Script-->
+   <!--  Highcharts Charts-->
+   <script src="/vendor/highcharts/highcharts.js"></script>
    <!-- App Main-->
    <script src="/app/js/app.js"></script>
    <!-- END Scripts-->

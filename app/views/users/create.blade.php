@@ -1,7 +1,24 @@
+<!DOCTYPE html>
 
-@extends ('layouts.master')
-@section('content')
+<html lang="en" class="no-ie">
 
+
+<head>
+   <!-- Bootstrap CSS-->
+   <link rel="stylesheet" href="../app/css/bootstrap.css">
+   <!-- Vendor CSS-->
+   <link rel="stylesheet" href="../vendor/fontawesome/css/font-awesome.min.css">
+   <link rel="stylesheet" href="../vendor/animo/animate+animo.css">
+   <!-- App CSS-->
+   <link rel="stylesheet" href="../app/css/app.css">
+   <link rel="stylesheet" href="../app/css/common.css">
+   <!-- Modernizr JS Script-->
+   <script src="../vendor/modernizr/modernizr.js" type="application/javascript"></script>
+   <!-- FastClick for mobiles-->
+   <script src="../vendor/fastclick/fastclick.js" type="application/javascript"></script>
+</head>
+
+<body>
    <!-- START wrapper-->
    <div class="row row-table page-wrapper">
       <div class="col-lg-3 col-md-6 col-sm-8 col-xs-12 align-middle">
@@ -47,5 +64,18 @@
               {{ Form::close() }}
             </div>
          </div>
-     
-  @stop
+      </div>
+   </div>
+   <!-- END wrapper-->
+   <!-- START Scripts-->
+   <!-- Main vendor Scripts-->
+   <script src="../vendor/jquery/jquery.min.js"></script>
+   <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+   <!-- Animo-->
+   <script src="../vendor/animo/animo.min.js"></script>
+   <!-- Custom script for pages-->
+   <script src="../app/js/pages.js"></script>
+   <!-- END Scripts-->
+</body>
+
+</html>

@@ -55,8 +55,7 @@
                   <div class="clearfix">
                      <div class="checkbox c-checkbox pull-left mt0">
                         <label>
-                           <input type="checkbox" value="">
-                           <span class="fa fa-check"></span>I agree with the <a href="#">terms</a>
+                           Already have an account?<a href="/login"> Login!</a>
                         </label>
                      </div>
                   </div>

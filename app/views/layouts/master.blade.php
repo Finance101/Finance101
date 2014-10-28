@@ -33,10 +33,10 @@
          <div class="navbar-header">
             <a href="/" class="navbar-brand">
                <div class="brand-logo">
-                  <img src="app/img/logo.png" alt="App Logo" class="img-responsive">
+                  <img src="/app/img/logo.png" alt="App Logo" class="img-responsive">
                </div>
                <div class="brand-logo-collapsed">
-                  <img src="app/img/logo-single.png" alt="App Logo" class="img-responsive">
+                  <img src="/app/img/logo-single.png" alt="App Logo" class="img-responsive">
                </div>
             </a>
          </div>
@@ -121,7 +121,7 @@
                   </a>
                </li>
                <li>
-                  <a href="#" title="Widgets" data-toggle="" class="no-submenu">
+                  <a href="/transactions" title="Widgets" data-toggle="" class="no-submenu">
                      <em class="fa fa-exchange"></em>
                      <span class="item-text">Transactions</span>
                   </a>

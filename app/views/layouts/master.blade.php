@@ -1,4 +1,5 @@
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
    <!-- Meta-->
    <meta charset="utf-8">
@@ -22,6 +23,12 @@
    <script src="/vendor/modernizr/modernizr.js" type="application/javascript"></script>
    <!-- FastClick for mobiles-->
    <script src="/vendor/fastclick/fastclick.js" type="application/javascript"></script>
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
    <link rel="stylesheet" type="text/css" href="/vendor/jqueryui/css/ui-lightness/jquery-ui-1.10.4.custom.min.css">
    <link rel="stylesheet" type="text/css" href="/vendor/datetimepicker/css/bootstrap-datetimepicker.min.css">
 </head>
@@ -33,7 +40,7 @@
       <nav role="navigation" class="navbar navbar-default navbar-top navbar-fixed-top">
          <!-- START navbar header-->
          <div class="navbar-header">
-            <a href="/" class="navbar-brand">
+            <a href="{{{ action('HomeController@showGetStarted') }}}" class="navbar-brand">
                <div class="brand-logo">
                   <img src="/app/img/logo.png" alt="App Logo" class="img-responsive">
                </div>
@@ -113,32 +120,32 @@
                <!-- START Menu-->
                <li class="nav-heading">Main navigation</li>
                <li class="active">
-                  <a href="index.html" title="Dashboard" data-toggle="" class="no-submenu">
+                  <a href="{{{ action('HomeController@showGetStarted') }}}" title="Dashboard" data-toggle="" class="no-submenu">
                      <em class="fa fa-dot-circle-o"></em>
                      
                      <span class="item-text">Dashboard</span>
                   </a>
                </li>
                <li>
-                  <a href="/transactions" title="Widgets" data-toggle="" class="no-submenu">
+                  <a href="{{{ action('TransactionsController@index') }}}" title="Widgets" data-toggle="" class="no-submenu">
                      <em class="fa fa-exchange"></em>
                      <span class="item-text">Transactions</span>
                   </a>
                </li>
                <li>
-                  <a href="/simulations" title="Elements" data-toggle="collapse-next" class="has-submenu">
+                  <a href="{{{ action('SimulationsController@index') }}}" title="Elements" data-toggle="collapse-next" class="has-submenu">
                      <em class="fa fa-flask"></em>
                      <span class="item-text">Budget Simulator</span>
                   </a>
                   <!-- START SubMenu item-->
                   <ul class="nav collapse ">
                      <li>
-                        <a href="/simulations/create" title="Buttons" data-toggle="" class="no-submenu">
+                        <a href="{{{ action('SimulationsController@create') }}}" title="Buttons" data-toggle="" class="no-submenu">
                            <span class="item-text">New Budget</span>
                         </a>
                      </li>
                      <li>
-                        <a href="notifications.html" title="Notifications" data-toggle="" class="no-submenu">
+                        <a href="{{{ action('SimulationsController@index') }}}" title="Notifications" data-toggle="" class="no-submenu">
                            <span class="item-text">View All</span>
                         </a>
                      </li>

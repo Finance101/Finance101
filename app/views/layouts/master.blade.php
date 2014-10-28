@@ -70,20 +70,17 @@
                <li class="pull-right">{{HTML::linkaction('HomeController@doLogin', 'Login')}}</li>
                @endif
             </ul>
-            <!-- END Left navbar-->
-            
-         </div>
-         <!-- END Nav wrapper-->
-
-         <!-- START Search form-->
-         <form role="search" action="search.html" class="navbar-form">
-            <div class="form-group has-feedback">
-               <input type="text" placeholder="Type and hit Enter.." class="form-control">
-               <div data-toggle="navbar-search-dismiss" class="fa fa-times form-control-feedback"></div>
-            </div>
-            <button type="submit" class="hidden btn btn-default">Submit</button>
-         </form>
-         <!-- END Search form-->
+             <!-- END Left navbar-->
+            <!-- START Right Navbar-->
+            <ul class="nav navbar-nav navbar-right">
+               
+               <!-- Fullscreen-->
+               <li>
+                  <a href="#" data-toggle="fullscreen">
+                     <em class="fa fa-expand"></em>
+                  </a>
+               </li>
+            </ul>
       </nav>
       <!-- END Top Navbar-->
       @if (Auth::check())

@@ -37,7 +37,7 @@
             </div>
             <div class="panel-body">
 
-            {{ Form::open(array('action' => 'HomeController@doLogin', 'class'=>'mb-lg', 'role'=>'form')) }}
+            {{ Form::open(array('action' => 'AuthController@doLogin', 'class'=>'mb-lg', 'role'=>'form')) }}
                    
                    <div class="text-right mb-sm">{{link_to_action('UsersController@create', 'Need to Signup?')}}
                   </div>

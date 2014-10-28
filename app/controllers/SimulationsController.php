@@ -2,14 +2,23 @@
 
 class SimulationsController extends \BaseController {
 
+	public function __construct()
+	{
+		// call base controller constructor
+		parent::__construct();
+
+		// run auth filter before all methods on this controller except index and show
+		$this->beforeFilter('auth', array('except' => array()));
+	}
 	/**
 	 * Display a listing of simulations
 	 *
 	 * @return Response
-	 */
+	 */	
+
 	public function index()
 	{
-		$simulations = Simulation::all();
+		$simulations = Simulation::with('user')->where('user_id', Auth::id())->get();
 
 		return View::make('simulations.index', compact('simulations'));
 	}

@@ -1,6 +1,3 @@
-<!DOCTYPE html>
-
-<html lang="en" class="no-ie">
 
 <head>
    <!-- Meta-->

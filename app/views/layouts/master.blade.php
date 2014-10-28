@@ -28,8 +28,12 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-  </head>
-  <body>
+
+   <link rel="stylesheet" type="text/css" href="/vendor/jqueryui/css/ui-lightness/jquery-ui-1.10.4.custom.min.css">
+   <link rel="stylesheet" type="text/css" href="/vendor/datetimepicker/css/bootstrap-datetimepicker.min.css">
+</head>
+
+<body>
    <!-- START Main wrapper-->
    <div class="wrapper">
       <!-- START Top Navbar-->
@@ -316,8 +320,10 @@
    <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
    <!-- Plugins-->
    <script src="/vendor/chosen/chosen.jquery.min.js"></script>
+   <script type="text/javascript" src="/vendor/jqueryui/js/jquery-ui-1.10.4.custom.min.js"></script>
    <script src="/vendor/slider/js/bootstrap-slider.js"></script>
    <script src="/vendor/filestyle/bootstrap-filestyle.min.js"></script>
+   <script type="text/javascript" src="/vendor/datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
    <!-- Animo-->
    <script src="/vendor/animo/animo.min.js"></script>
    <!-- Sparklines-->
@@ -333,6 +339,7 @@
    <!-- App Main-->
    <script src="/app/js/app.js"></script>
    <!-- END Scripts-->
+   @yield('bottom-script')
 </body>
 
 </html>

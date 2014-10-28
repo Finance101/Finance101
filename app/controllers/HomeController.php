@@ -11,32 +11,16 @@ class HomeController extends BaseController {
 	| based routes. That's great! Here is an example controller method to
 	| get you started. To route to this controller, just add the route:
 	|
-	|	Route::get('/', 'HomeController@showWelcome');
+	|	Route::get('/', 'HomeController@showGetStarted');
 	|
 	*/
-
-	public function showWelcome()
+	public function showGetStarted()
 	{
-		return View::make('hello');
+		return View::make('getStarted');
 	}
 
-	public function showLogin()
+	public function createFirstBudget()
 	{
-		return View::make('login');
-	}
 
-	public function doLogin() 
-	{
-		if (Auth::attempt(array('email' => Input::get('email'), 'password' => Input::get('password')))) {
-		    return Redirect::intended('/transactions');
-		} else {
-		    return Redirect::action('HomeController@showLogin');
-		}
-	}
-
-	public function doLogout()
-	{
-		Auth::logout();
-		return Redirect::action('HomeController@showWelcome');
 	}
 }

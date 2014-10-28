@@ -1,0 +1,153 @@
+/* ========================================================================
+   Component: layout
+ ========================================================================== */
+body,
+.wrapper > section {
+  background-color: #f5f7fa;
+}
+/* ========================================================================
+   Component: top-navbar
+ ========================================================================== */
+.navbar-top {
+  background-color: #fff;
+}
+.navbar-top .navbar-header {
+  background-color: transparent;
+  background-image: -webkit-linear-gradient(left, #23b7e5 0%, #30c8ca 100%);
+  background-image: -o-linear-gradient(left, #23b7e5 0%, #30c8ca 100%);
+  background-image: linear-gradient(to right, #23b7e5 0%, #30c8ca 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff23b7e5', endColorstr='#ff30c8ca', GradientType=1);
+}
+@media only screen and (min-width: 768px) {
+  .navbar-top .navbar-header {
+    background-image: none;
+  }
+}
+.navbar-top .navbar-nav > li > a,
+.navbar-top .navbar-nav > .open > a {
+  color: #23b7e5;
+}
+.navbar-top .navbar-nav > li > a:hover,
+.navbar-top .navbar-nav > .open > a:hover,
+.navbar-top .navbar-nav > li > a:focus,
+.navbar-top .navbar-nav > .open > a:focus {
+  color: #117391;
+}
+.navbar-top .navbar-nav > .active > a,
+.navbar-top .navbar-nav > .open > a,
+.navbar-top .navbar-nav > .active > a:hover,
+.navbar-top .navbar-nav > .open > a:hover,
+.navbar-top .navbar-nav > .active > a:focus,
+.navbar-top .navbar-nav > .open > a:focus {
+  background-color: transparent;
+}
+.navbar-top .navbar-nav > li > [data-toggle='navbar-search'] {
+  color: #ffffff;
+}
+.navbar-top .nav-wrapper {
+  background-color: #23b7e5;
+  background-image: -webkit-linear-gradient(left, #23b7e5 0%, #30c8ca 100%);
+  background-image: -o-linear-gradient(left, #23b7e5 0%, #30c8ca 100%);
+  background-image: linear-gradient(to right, #23b7e5 0%, #30c8ca 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff23b7e5', endColorstr='#ff30c8ca', GradientType=1);
+}
+@media only screen and (min-width: 768px) {
+  .navbar-top {
+    background-color: #23b7e5;
+    background-image: -webkit-linear-gradient(left, #23b7e5 0%, #30c8ca 100%);
+    background-image: -o-linear-gradient(left, #23b7e5 0%, #30c8ca 100%);
+    background-image: linear-gradient(to right, #23b7e5 0%, #30c8ca 100%);
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff23b7e5', endColorstr='#ff30c8ca', GradientType=1);
+  }
+  .navbar-top .navbar-nav > .open > a,
+  .navbar-top .navbar-nav > .open > a:hover,
+  .navbar-top .navbar-nav > .open > a:focus {
+    box-shadow: 0 -3px 0 rgba(255, 255, 255, 0.5) inset;
+  }
+  .navbar-top .navbar-nav > li > a,
+  .navbar-top .navbar-nav > .open > a {
+    color: #ffffff;
+  }
+  .navbar-top .navbar-nav > li > a:hover,
+  .navbar-top .navbar-nav > .open > a:hover,
+  .navbar-top .navbar-nav > li > a:focus,
+  .navbar-top .navbar-nav > .open > a:focus {
+    color: #117391;
+  }
+}
+/* ========================================================================
+   Component: sidebar
+ ========================================================================== */
+.sidebar {
+  background-color: #ffffff;
+  border-right-color: #cccccc;
+}
+.sidebar .nav-heading {
+  color: #919293;
+}
+.sidebar .nav-labels > .nav-labels-item > a {
+  color: #919293;
+}
+.sidebar .nav > li > a,
+.sidebar .nav > li > .nav-item {
+  color: #919293;
+}
+.sidebar .nav > li > a:focus,
+.sidebar .nav > li > .nav-item:focus {
+  color: #23b7e5;
+}
+.sidebar .nav > li > a > em,
+.sidebar .nav > li > .nav-item > em {
+  color: inherits;
+}
+.sidebar .nav > li.active,
+.sidebar .nav > li:hover,
+.sidebar .nav > li.active > a,
+.sidebar .nav > li:hover > a,
+.sidebar .nav > li.active > a > .item-text,
+.sidebar .nav > li:hover > a > .item-text,
+.sidebar .nav > li.active .nav,
+.sidebar .nav > li:hover .nav {
+  background-color: #fcfcfc;
+  color: #23b7e5;
+}
+.sidebar .nav > li.active > a > em,
+.sidebar .nav > li:hover > a > em {
+  color: #23b7e5;
+}
+.sidebar .nav > li.active {
+  border-left-color: #23b7e5;
+}
+.sidebar .nav .nav {
+  background-color: #ffffff;
+}
+.sidebar .nav .nav > li > a:focus,
+.sidebar .nav .nav > li > .nav-item:focus,
+.sidebar .nav .nav > li > a:hover,
+.sidebar .nav .nav > li > .nav-item:hover {
+  color: #23b7e5;
+}
+.sidebar .nav .nav > li > a:after,
+.sidebar .nav .nav > li > .nav-item:after {
+  border-color: rgba(0, 0, 0, 0.25);
+}
+.sidebar .nav .nav > li.active > a,
+.sidebar .nav .nav > li.active > .nav-item {
+  color: #23b7e5;
+}
+.sidebar .nav .nav > li.active > a:after,
+.sidebar .nav .nav > li.active > .nav-item:after {
+  border-color: #23b7e5;
+  background-color: #23b7e5;
+}
+/* ========================================================================
+   Component: offsidebar
+ ========================================================================== */
+.offsidebar {
+  border-left: 1px solid #cccccc;
+  background-color: #ffffff;
+  color: #515253;
+}

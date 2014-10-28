@@ -49,10 +49,17 @@ class SimulationsController extends \BaseController {
 			return Redirect::back()->withErrors($validator)->withInput();
 		}
 
-		Simulation::create($data);
+		$newSimulation = Simulation::create($data);
 
-		return Redirect::route('simulations.index');
-
+		if (Request::ajax()) {
+			return Response::json(array(
+				'success' => true,
+				'message' => '',
+				'sim_id' => $newSimulation->id
+			));
+		} else {
+			return Redirect::route('simulations.index');
+		}
 
 	}
 

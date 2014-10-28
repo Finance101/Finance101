@@ -28,3 +28,4 @@ Route::get('/logout', 'HomeController@doLogout');
 Route::post('/login', 'HomeController@doLogin');
 
 Route::resource('goals', 'GoalsController');
+

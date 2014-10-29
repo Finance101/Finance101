@@ -47,7 +47,7 @@
                </li>
            	   <li>{{HTML::linkaction('HomeController@showWelcome','Home')}}</li>
            	   <li><a href="#about">About</a>
-           	   <li><a href="#team">Team</a>
+           	   <li><a href="#team">Bots</a>
                <!-- END User avatar toggle-->
                @if (Auth::check())
                <li class="pull-right">{{HTML::linkaction('AuthController@doLogout', 'Logout')}}</li>
@@ -87,7 +87,7 @@
 		<div class="row nopadding">
 			<div class="col-md-5 col-md-offset-1 mt">
 				<h4>About</h4>
-				<p>When you're new to the REAL WORLD finances can seem very overwhelming.</p>
+				<p>When you're new to the REAL WORLD, like us, finances can seem very overwhelming.</p>
 				<p>What do you want to be when you grow up?</p>
 				<p>How will you even get there?</p>
 				<p>Do you know what your financial future will look like?</p>
@@ -110,7 +110,8 @@
 				<img src="assets/img/shot01.png" class="img-responsive alignleft" alt="" data-effect="slide-left">
 			</div>
 			<div class="col-md-5 mt">
-				<h4>Made By Real People</h4>
+				<h4>Why?</h4>
+				<p>Made By Real Bots</p>
 				<p>Simulate your financial future with our budget simulator.</p>
 				<p>Learn what those crazy finance words mean and how to use them.</p>
 				<p>Simple user interface with guided tutorials.</p>
@@ -127,7 +128,7 @@
 	<div id="jelly">
 		<div class="row nopadding">
 			<div class="col-sm-10 col-sm-offset-1">
-				<h4 class="centered">The Team</h4>
+				<h4 class="centered">Bots</h4>
          <div class="col-md-4 col-sm-6">
              <div class="card-container">
                 <div class="card">
@@ -310,7 +311,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-6 col-md-offset-3 centered">
-					<p>Copyright 2014 | finance101.com</p>
+					<p>Copyright 2014 | budgetbot.com</p>
 				</div>
 			</div>
 		</div><! --/container -->

@@ -25,4 +25,12 @@ class HomeController extends BaseController {
 		// create a transaction for that budget
 		// redirec to show for new budget
 	}
+
+	public function showWelcome()
+	{
+			return View::make('hello');
+	}
 }
+
+
+

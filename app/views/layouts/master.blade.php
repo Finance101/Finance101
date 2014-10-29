@@ -112,7 +112,7 @@
                @if (Auth::check())
                <div class="user-block-info">
                   <span class="user-block-name item-text">Welcome {{(Auth::user()->first_name)}}</span>
-                  <span class="user-block-role">UX-Dev</span>
+                  <span class="user-block-role"></span>
                </div>
             </div>
             @endif
@@ -286,13 +286,13 @@
          <div class="content-wrapper">
              <h3>
                <div class="pull-right text-center">
-                  <div class="text-sm mb-sm">500 ratings</div>
+                  <div class="text-sm mb-sm"></div>
                   <div data-bar-color="#cfdbe2" data-height="18" data-bar-width="3" data-bar-spacing="2" class="inlinesparkline">2,3,4,7,5,7,8,9,5,7,8,4,7</div>
                </div>Dashboard
                <small>Hi, {{(Auth::user()->first_name)}}. Welcome back!</small>
             </h3>
             @endif
-            <div data-toggle="notify" data-onload data-message="&lt;b&gt;This is notify!&lt;/b&gt; Dismiss with a click or wait for it to disappear." data-options="{&quot;status&quot;:&quot;warning&quot;, &quot;pos&quot;:&quot;bottom-right&quot;}" class="hidden-xs"></div>
+            <!-- <div data-toggle="notify" data-onload data-message="&lt;b&gt;This is notify!&lt;/b&gt; Dismiss with a click or wait for it to disappear." data-options="{&quot;status&quot;:&quot;warning&quot;, &quot;pos&quot;:&quot;bottom-right&quot;}" class="hidden-xs"></div> -->
             <div class="row">
                <!-- START dashboard main content-->
                <section class="col-md-9">
@@ -300,7 +300,7 @@
                   <div class="row">
                      <div class="col-lg-12">
 
-
+                       <!--  CONTENT GOES HERE -->
                       @yield('content') 
                         
 

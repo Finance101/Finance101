@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="icon" href="assets/img/favicon.ico">
 
-    <title>Finance 101</title>
+    <title>Budgetor</title>
 
     <!-- Bootstrap core CSS -->
     <link href="assets/css/bootstrap.css" rel="stylesheet">
@@ -46,9 +46,9 @@
            
                <!-- END User avatar toggle-->
                @if (Auth::check())
-               <li class="pull-right">{{HTML::linkaction('HomeController@doLogout', 'Logout')}}</li>
+               <li class="pull-right">{{HTML::linkaction('AuthController@doLogout', 'Logout')}}</li>
                @else
-               <li class="pull-right">{{HTML::linkaction('HomeController@doLogin', 'Login')}}</li>
+               <li class="pull-right">{{HTML::linkaction('AuthController@doLogin', 'Login')}}</li>
                @endif
             </ul>
              <!-- END Left navbar-->
@@ -68,25 +68,25 @@
 		<div class="container">
 			<div class="row">
 			    <div class="col-md-10 col-md-offset-1 mt">
-			    	<h3>There are plenty of reasons learn finance..</h3>
-			    	<h1 class="mb">what's yours?</h1>
+			    	<h1>Budgetor</h1>
+			    	<h1 class="mb"></h1>
 			    </div>
 			    <div class="col-md-12 mt hidden-xs">
 			    	<img src="assets/img/graph.png" class="img-responsive aligncenter" alt="" data-effect="slide-bottom">
 			    </div>
 			</div>
-		</div><! --/container -->
+		</div><!-- <! container --> 
 	</div><! --/h -->
 	
-	<! -- ********** FIRST ********** -->
+	<!-- ********** FIRST ********** -->
 	<div id="w">
 		<div class="row nopadding">
 			<div class="col-md-5 col-md-offset-1 mt">
-				<h4>Handsome Analytics</h4>
-				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-				<p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-				<p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
-				<p class="mt"><button class="btn btn-info btn-theme">Sign Up Now | 14 Days Free</button></p>
+				<h4>About Finance 101</h4>
+				<p>When you're new to the REAL WORLD finances can seem very overwhelming.</p>
+				<p>You have rent, tuition, bills, and you want to have enough money for fun, as well. Where do you start? </p>
+				<p>Who has the time to sit and explain what your financial future will look like?</p>
+				<p class="mt"><button class="btn btn-info btn-theme">Have no fear, Budgetor, is here!</button></p>
 			</div>
 			
 			<div class="col-md-6 pull-right">
@@ -189,7 +189,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-6 col-md-offset-3 centered">
-					<p>Copyright 2014 | LandingSumo.com</p>
+					<p>Copyright 2014 | Budgetor.com</p>
 				</div>
 			</div>
 		</div><! --/container -->

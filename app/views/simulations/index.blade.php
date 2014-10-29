@@ -1,10 +1,6 @@
 @extends('layouts.master')
 
-@section('content')
-	<script type="text/javascript" src="/js/highcharts.js"></script>
-	
-	<script type="text/javascript" src="/js/moment.min.js"></script>
-		
+@section('content')			
 	<table>
 		<th>Simulation</th>
 
@@ -15,10 +11,12 @@
 		@endforeach
 	</table>
 
-	<div id="toDatePicker"></div>
+	<input type="text" class="form-control" id="toDatePicker">
 
 	<div id="chartDisplay"></div>
+@stop
 
+@section('bottom-script')
 	<script type="text/javascript">
 			var startDate = moment('{{{ $simulations[0]->user->created_at }}}'),
 				endDate,
@@ -32,71 +30,70 @@
 					'approx_daily_value' : {{{ $simulation->approx_daily_value }}}
 				});
 			@endforeach
-								
 			// user sets projection distance with jQuery UI's datepicker	
-			$( "#toDatePicker" ).datepicker({ 
-		    	dateFormat: "yyyy-mm-dd",
-		    	onSelect: function() { 
-		    		const CHART_INTERVALS = 10;
-		        	var chartCategories = [],
-		        		chartSeries = [],
-		        		dayCount = [],
-		        		endDate,
-		        		distance;
-			        
-			        endDate = moment($(this).datepicker('getDate'));
-					// moment.js finds number of days from user's account creation date to projection date
-			        distance = endDate.diff(startDate, 'days');
-					// javascript creates twenty points to plot on chart.js line graph
-			        for(var i = 1; i <= CHART_INTERVALS; i++) {
-						dayCount.push(Math.round(distance * i / CHART_INTERVALS));
-					}
-					
-					dayCount.forEach(function (day, index, array) {
-						var newDate = moment(startDate);
-						newDate.add(day, 'days');
-						// chartCategories.push(newDate.fromNow());
-						chartCategories.push(newDate.format('M-D-YY'));
+			$( "#toDatePicker" ).datetimepicker();
+		    
+		    $('#toDatePicker').on('dp.change', function (e) {
+		    	const CHART_INTERVALS = 10;
+	        	var chartCategories = [],
+	        		chartSeries = [],
+	        		dayCount = [],
+	        		endDate,
+	        		distance;
+		        
+		        endDate = moment($(this).data("DateTimePicker").getDate());
+				// moment.js finds number of days from user's account creation date to projection date
+		        distance = endDate.diff(startDate, 'days');
+				// javascript creates twenty points to plot on chart.js line graph
+		        for(var i = 1; i <= CHART_INTERVALS; i++) {
+					dayCount.push(Math.round(distance * i / CHART_INTERVALS));
+				}
+				
+				dayCount.forEach(function (day, index, array) {
+					var newDate = moment(startDate);
+					newDate.add(day, 'days');
+					// chartCategories.push(newDate.fromNow());
+					chartCategories.push(newDate.format('M-D-YY'));
 
+				});
+								
+				simulations.forEach(function (simulation, index, array) {
+					var dataPoints = [];
+					dayCount.forEach(function (day, index, array) {
+						dataPoints.push(simulation.approx_daily_value * day);
 					});
-									
-					simulations.forEach(function (simulation, index, array) {
-						var dataPoints = [];
-						dayCount.forEach(function (day, index, array) {
-							dataPoints.push(simulation.approx_daily_value * day);
-						});
-						chartSeries.push({
-							'name' : simulation.title, 
-							'data' : dataPoints
-						});
-				    });
-				    
-				    $('#chartDisplay').highcharts({
-				        chart: {
-				            type: 'area'
-				        },
-				        title: {
-				            text: 'Forecast'
-				        },
-				        xAxis: {
-				            categories: chartCategories
-				        },
-				        yAxis: {
-				            title: {
-				                text: 'USD'
-				            }
-				        },
-				        plotOptions: {
-				            line: {
-				                dataLabels: {
-				                    enabled: true
-				                },
-				                enableMouseTracking: true
-				            }
-				        },
-				        series: chartSeries
-				    });
-			    }
-			});
+					chartSeries.push({
+						'name' : simulation.title, 
+						'data' : dataPoints
+					});
+			    });
+			    
+			    $('#chartDisplay').highcharts({
+			        chart: {
+			            type: 'area'
+			        },
+			        title: {
+			            text: 'Forecast'
+			        },
+			        xAxis: {
+			            categories: chartCategories
+			        },
+			        yAxis: {
+			            title: {
+			                text: 'USD'
+			            }
+			        },
+			        plotOptions: {
+			            line: {
+			                dataLabels: {
+			                    enabled: true
+			                },
+			                enableMouseTracking: true
+			            }
+			        },
+			        series: chartSeries
+			    });
+		    });
+
 	</script>
 @stop

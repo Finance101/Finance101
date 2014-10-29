@@ -318,6 +318,8 @@
    <!-- Main vendor Scripts-->
    <script src="/vendor/jquery/jquery.min.js"></script>
    <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+   <!-- moment -->
+   <script type="text/javascript" src="/js/moment.min.js"></script>
    <!-- Plugins-->
    <script src="/vendor/chosen/chosen.jquery.min.js"></script>
    <script type="text/javascript" src="/vendor/jqueryui/js/jquery-ui-1.10.4.custom.min.js"></script>

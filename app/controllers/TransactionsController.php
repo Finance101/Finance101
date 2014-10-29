@@ -93,7 +93,15 @@ class TransactionsController extends \BaseController {
 
 		$simulations = Simulation::all();
 
-		return Redirect::route('simulations.index');
+		if (Request::ajax()) {
+			return Response::json(array(
+				'success' => true,
+				'message' => 'New Transaction Added Successfully',
+				'approx_daily' => $simulation->approx_daily_value,
+			));
+		} else {
+			return Redirect::route('simulations.index');
+		}
 	}
 
 	/**

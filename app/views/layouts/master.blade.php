@@ -7,6 +7,7 @@
    <meta name="description" content="">
    <meta name="keywords" content="">
    <meta name="author" content="">
+   <meta name="_token" content="{{ csrf_token() }}">
    <title>Finance 101</title>
    
    <!-- Bootstrap CSS-->
@@ -316,15 +317,15 @@
    <!-- END Main wrapper-->
    <!-- START Scripts-->
    <!-- Main vendor Scripts-->
-   <script src="/vendor/jquery/jquery.min.js"></script>
-   <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
    <!-- moment -->
    <script type="text/javascript" src="/js/moment.min.js"></script>
    <!-- Plugins-->
-   <script src="/vendor/chosen/chosen.jquery.min.js"></script>
-   <script type="text/javascript" src="/vendor/jqueryui/js/jquery-ui-1.10.4.custom.min.js"></script>
+   <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+   <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
    <script src="/vendor/slider/js/bootstrap-slider.js"></script>
    <script src="/vendor/filestyle/bootstrap-filestyle.min.js"></script>
+   <script src="/vendor/chosen/chosen.jquery.min.js"></script> 
+   <script type="text/javascript" src="/vendor/jqueryui/js/jquery-ui-1.10.4.custom.min.js"></script>
    <script type="text/javascript" src="/vendor/datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
    <!-- Animo-->
    <script src="/vendor/animo/animo.min.js"></script>
@@ -341,6 +342,15 @@
    <!-- App Main-->
    <script src="/app/js/app.js"></script>
    <!-- END Scripts-->
+   <script type="text/javascript">
+      $(function() {
+         $.ajaxSetup({
+              headers: {
+                  'X-CSRF-Token': $('meta[name="_token"]').attr('content')
+              }
+         });
+      });
+   </script>
    @yield('bottom-script')
 </body>
 

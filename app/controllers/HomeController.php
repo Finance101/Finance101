@@ -21,6 +21,8 @@ class HomeController extends BaseController {
 
 	public function createFirstBudget()
 	{
-
+		// create a new budget
+		// create a transaction for that budget
+		// redirec to show for new budget
 	}
 }

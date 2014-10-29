@@ -16,14 +16,14 @@
 	</p>
 
 <!-- Move to chart page -->
-	 <p><a id="newExpense" class="btn btn-primary popup" title="Create multiple expenses."  
+	 <!-- <p><a id="newExpense" class="btn btn-primary popup" title="Create multiple expenses."  
 	  data-container="body" data-toggle="popover" data-placement="right" 
 	  data-content="This form can help you enter car payments, rent, insurance etc to plan a simulated budget. Each additional item will have a visable effect on the budget tracker.">NEW EXPENSE</a><p>
 
 
 	  <p><a id="addIncome" class="btn btn-primary popup" title="Please tell us your income."  
 	  data-container="body" data-toggle="popover" data-placement="right" 
-	  data-content="If you don't have an income be creative and come up with one.">CREATE AN INCOME</a><p> 
+	  data-content="If you don't have an income be creative and come up with one.">CREATE AN INCOME</a><p>  -->
 
 	{{ Form::open(array('action' => 'HomeController@createFirstBudget', 'class' => 'form-horizontal')) }}
 	<div id='title1' class="form-group">
@@ -41,7 +41,7 @@
 
 	<div id='expenseName1' class="form-group">
 		<div class="col-md-4">
-			{{ Form::text('type', null, array('placeholder' => 'Expense Type', 'class' => 'form-control')) }}
+			{{ Form::select('type', array('rent', 'car payment', 'electric bill', 'student loans', 'insurance'), null, array('class' => 'form-control')) }}
 		</div>
 		<div class="col-md-2">
 			<a id="step2btn" class="btn btn-primary popup" title="Great Job!"  
@@ -52,19 +52,18 @@
 		</div>
 	</div>
 
-<div id='expenseAmount1'>
-
-	
-		{{ Form::text('amount', null, array('placeholder' => 'Amount of Expense')) }}
-
-	
-		<p><a id="step3btn" class="btn btn-primary popup" title="Next we need to know how often your expense will occur."  
-	  data-container="body" data-toggle="popover" data-placement="right" 
-	  data-content="For example, annual, quarterly, monthly, bi-weekly, weekly or daily.">STEP 3</a><p>
-	
-
-</div>
-
+	<div id='expenseAmount1'class="form-group">
+		<div class="col-md-4">
+			{{ Form::text('amount', null, array('placeholder' => 'Expense Amount','class' => 'form-control')) }}
+		</div>
+		<div class="col-md-2">
+			<a id="step3btn" class="btn btn-primary popup" title="Next we need to know how often your expense will occur."  
+			  data-container="body" data-toggle="popover" data-placement="right" 
+			  data-content="For example, annual, quarterly, monthly, bi-weekly, weekly or daily.">
+			  	STEP 3
+			</a>
+		</div>
+	</div>
 	<div id='expenseFrequency1' class="form-group">
 		<div class="col-md-4">
 			{{ Form::select('frequency', array('Daily', 'Weekly', 'Bi-Weekly', 'Monthly'), null, array('class' => 'form-control')) }}
@@ -79,8 +78,15 @@
 	</div>
 
 {{ Form::close() }}
+
+
+
+
+
+
+
 <!-- Move to chart page -->
-<div id='incomeAmount1'>
+<!-- <div id='incomeAmount1'>
 
 	
 		{{ Form::text('title', null, array('placeholder' => 'Income Amount')) }}
@@ -102,17 +108,17 @@
 	  data-content="Most get paid on either a weekly, bi-week or monthly basis, please choose one of these options.">Submit Budget</a><p>
 	
 
-</div> 
+</div>  -->
 
 
 <!-- Move to chart page as well -->
-<div id='newExpenseName'>
+<!-- <div id='newExpenseName'>
 	{{ Form::text('title', null, array('placeholder' => 'Expense Type')) }}
 	
 	<!-- <p><a id="step1btn" class="btn btn-primary popup" title="Great Job!"  
 	  data-container="body" data-toggle="popover" data-placement="right" 
 	  data-content="Now that we have an expense type, please tell us how much $$ the expense is per occurance. i.e., $349.56 ">STEP 1</a><p> -->
-</div>
+<!-- </div>
 
 <div id='newExpenseAmount'>
 
@@ -120,26 +126,26 @@
 		{{ Form::text('title', null, array('placeholder' => 'Amount of Expense')) }}
 
 	
-		<!-- <p><a id="step3btn" class="btn btn-primary popup" title="Next we need to know how often your expense will occur."  
+		<p><a id="step3btn" class="btn btn-primary popup" title="Next we need to know how often your expense will occur."  
 	  data-container="body" data-toggle="popover" data-placement="right" 
-	  data-content="For example, annual, quarterly, monthly, bi-weekly, weekly or daily.">STEP 2</a><p> -->
+	  data-content="For example, annual, quarterly, monthly, bi-weekly, weekly or daily.">STEP 2</a><p>
 	
 
-</div>
+</div> -->
 
-<div id='newExpenseFrequency'>
+<!-- <div id='newExpenseFrequency'> -->
 
 	
-		{{ Form::text('title', null, array('placeholder' => 'Frequency')) }}
+		<!-- {{ Form::text('title', null, array('placeholder' => 'Frequency')) }} -->
 
-		<p><a id="submitExpensebtn" class="btn btn-primary popup" title="Submit Expense."  
+<!-- 		<p><a id="submitExpensebtn" class="btn btn-primary popup" title="Submit Expense."  
 	  data-container="body" data-toggle="popover" data-placement="right" 
 	  data-content="Create another expense. ">Submit Budget</a><p>
 	
 
-</div>
-
-
+</div> --> 
+@stop
+@section('bottom-script')
 	  <script>
 
 				  $( document ).ready(function() {

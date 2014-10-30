@@ -18,69 +18,34 @@
     <link href="assets/css/custom-animations.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
     <link rel="stylesheet" href="/app/css/animations.css">
-
   </head>
 
   <body>
 
-	!-- START Main wrapper-->
-   <div class="wrapper">
+	
+ 
       <!-- START Top Navbar-->
-      <nav role="navigation" class="navbar navbar-default navbar-top navbar-fixed-top">
-         <!-- START navbar header-->
-         <div class="navbar-header">
-            <a href="/" class="navbar-brand">
-               <!--   <img src="/app/img/logo.png"> -->
-            </a>
-         </div>
-         <!-- END navbar header-->
-
-         <!-- START Nav wrapper-->
-         <div class="nav-wrapper">
-            <!-- START Left navbar-->
-            <ul class="nav navbar-nav">
-               <li>
-                  <!-- Button to show/hide the sidebar on mobile. Visible on mobile only.-->
-                  <a href="#" data-toggle-state="aside-toggled" class="visible-xs">
-                     <em class="fa fa-navicon"></em>
-                  </a>
-               </li>
-           	   <li>{{HTML::linkaction('HomeController@showWelcome','Home')}}</li>
-           	   <li><a href="#about">About</a>
-           	   <li><a href="#team">Bots</a>
-               <!-- END User avatar toggle-->
-               @if (Auth::check())
-               <li class="pull-right">{{HTML::linkaction('AuthController@doLogout', 'Logout')}}</li>
-               @else
-               <li class="pull-right">{{HTML::linkaction('AuthController@doLogin', 'Login')}}</li>
-               @endif
-            </ul>
-             <!-- END Left navbar-->
-            <!-- START Right Navbar-->
-            <ul class="nav navbar-nav navbar-right">
-               
-               <!-- Fullscreen-->
-               <li>
-                  <a href="#" data-toggle="fullscreen">
-                     <em class="fa fa-expand"></em>
-                  </a>
-               </li>
-            </ul>
-      </nav>
+         @include('navbar')
       <!-- END Top Navbar-->
 	<div id="h">
 		<div class="container">
 			<div class="row">
-			    <div class="col-md-10 col-md-offset-1 mt">
-			    	<image src="/app/img/logo-single.png"><h3>Budget Bot</h3>
-			    	<h1 class="mb"></h1>
-			    </div>
-			    <div class="col-md-12 mt hidden-xs">
-			    	<img src="assets/img/graph.png" class="img-responsive aligncenter" alt="" data-effect="slide-bottom">
-			    </div>
+			    <div class="col-md-10 col-md-offset-1 mtb2">
+            <div class="row">
+                    <div class="centered">
+                            <h2 style="color:white">Learn to Budget</h2>
+                            <p>Use our budget simulator to project your financial future.</p>
+                            <p>Compare your budget lifestyles. </p>
+                            <p>Free.</p>
+                        <div id="main-start" class="main-start">
+                                <a href="/users/create" class="btn btn-success btn-lg" id="startNowButton">Start now!</a>
+                         </div>
+                    </div>
+                </div>
 			</div>
 		</div><!-- <! container --> 
 	</div><!-- /h --> 
+</div>
 	<a name="about"></a> <!-- anchor tag for about -->
 	<!-- ********** FIRST ********** -->
 	<div id="w">

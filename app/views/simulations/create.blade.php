@@ -4,8 +4,7 @@
 		<!-- foreach($simulations as $simulation) {	
 			$sim_ids_array[$simulation->id] = $simulation->title;
 		} -->
-	<h1>Welcome to Finance 101</h1>
-	
+
 	<h3>Budget Your Future</h3>
 	
 	<p><a id="newBudget" class="btn btn-primary popup" title="Budgets Are Important" data-container="body" data-toggle="popover" data-placement="top" data-content="They are the blueprint for financial success, please give your budget a name.">CREATE A NEW BUDGET</a></p>

@@ -8,10 +8,11 @@
    <meta name="keywords" content="">
    <meta name="author" content="">
    <meta name="_token" content="{{ csrf_token() }}">
-   <title>Finance 101</title>
+   <title>Budget Bot</title>
    
    <!-- Bootstrap CSS-->
    <link rel="stylesheet" href="/app/css/bootstrap.css">
+
    <!-- Vendor CSS-->
    <link rel="stylesheet" href="/vendor/fontawesome/css/font-awesome.min.css">
    <link rel="stylesheet" href="/vendor/animo/animate+animo.css">
@@ -24,74 +25,17 @@
    <script src="/vendor/modernizr/modernizr.js" type="application/javascript"></script>
    <!-- FastClick for mobiles-->
    <script src="/vendor/fastclick/fastclick.js" type="application/javascript"></script>
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+   
 
    <link rel="stylesheet" type="text/css" href="/vendor/jqueryui/css/ui-lightness/jquery-ui-1.10.4.custom.min.css">
    <link rel="stylesheet" type="text/css" href="/vendor/datetimepicker/css/bootstrap-datetimepicker.min.css">
 </head>
 
 <body>
-   <!-- START Main wrapper-->
-   <div class="wrapper">
-      <!-- START Top Navbar-->
-      <nav role="navigation" class="navbar navbar-default navbar-top navbar-fixed-top">
-         <!-- START navbar header-->
-         <div class="navbar-header">
-            <a href="{{{ action('HomeController@showGetStarted') }}}" class="navbar-brand">
-               <div class="brand-logo">
-                  <img src="/app/img/logo.png" alt="App Logo" class="img-responsive">
-               </div>
-               <div class="brand-logo-collapsed">
-                  <img src="/app/img/logo-single.png" alt="App Logo" class="img-responsive">
-               </div>
-            </a>
-         </div>
-         <!-- END navbar header-->
 
-         <!-- START Nav wrapper-->
-         <div class="nav-wrapper">
-            <!-- START Left navbar-->
-            <ul class="nav navbar-nav">
-               <li>
-                  <!-- Button used to collapse the left sidebar. Only visible on tablet and desktops-->
-                  <a href="#" data-toggle-state="aside-collapsed" class="hidden-xs">
-                     <em class="fa fa-navicon"></em>
-                  </a>
-                  <!-- Button to show/hide the sidebar on mobile. Visible on mobile only.-->
-                  <a href="#" data-toggle-state="aside-toggled" class="visible-xs">
-                     <em class="fa fa-navicon"></em>
-                  </a>
-               </li>
-               <!-- START User avatar toggle-->
-               <li>
-                  <!-- Button used to collapse the left sidebar. Only visible on tablet and desktops-->
-                  <a href="#" data-toggle-state="aside-user">
-                     <em class="fa fa-user"></em>
-                  </a>
-               </li>
-               <!-- END User avatar toggle-->
-               @if (Auth::check())
-               <li class="pull-right">{{HTML::linkaction('AuthController@doLogout', 'Logout')}}</li>
-               @else
-               <li class="pull-right">{{HTML::linkaction('AuthController@doLogin', 'Login')}}</li>
-               @endif
-            </ul>
-             <!-- END Left navbar-->
-            <!-- START Right Navbar-->
-            <ul class="nav navbar-nav navbar-right">
-               
-               <!-- Fullscreen-->
-               <li>
-                  <a href="#" data-toggle="fullscreen">
-                     <em class="fa fa-expand"></em>
-                  </a>
-               </li>
-            </ul>
-      </nav>
+   @include('navbar')
+
+         
       <!-- END Top Navbar-->
       @if (Auth::check())
       <!-- START aside-->
@@ -123,14 +67,7 @@
                <li class="active">
                   <a href="{{{ action('HomeController@showGetStarted') }}}" title="Dashboard" data-toggle="" class="no-submenu">
                      <em class="fa fa-dot-circle-o"></em>
-                     
                      <span class="item-text">Dashboard</span>
-                  </a>
-               </li>
-               <li>
-                  <a href="{{{ action('TransactionsController@index') }}}" title="Widgets" data-toggle="" class="no-submenu">
-                     <em class="fa fa-exchange"></em>
-                     <span class="item-text">Transactions</span>
                   </a>
                </li>
                <li>
@@ -150,8 +87,14 @@
                            <span class="item-text">View All</span>
                         </a>
                      </li>
-                     </ul
-                  <!-- END SubMenu item-->
+                     </ul>
+               <!--  end submenu-->
+               </li>
+               <li>
+                  <a href="{{{ action('TransactionsController@index') }}}" title="Transactions" data-toggle="" class="no-submenu">
+                     <em class="fa fa-exchange"></em>
+                     <span class="item-text">Transactions</span>
+                  </a>
                </li>
                <li>
                   <a href="#" title="Forms" data-toggle="collapse-next" class="has-submenu">
@@ -288,8 +231,8 @@
                <div class="pull-right text-center">
                   <div class="text-sm mb-sm"></div>
                   <div data-bar-color="#cfdbe2" data-height="18" data-bar-width="3" data-bar-spacing="2" class="inlinesparkline">2,3,4,7,5,7,8,9,5,7,8,4,7</div>
-               </div>Dashboard
-               <small>Hi, {{(Auth::user()->first_name)}}. Welcome back!</small>
+               </div><title>@yield('title')</title>
+               <small>Hi, {{(Auth::user()->first_name)}}. Welcome!</small>
             </h3>
             @endif
             <!-- <div data-toggle="notify" data-onload data-message="&lt;b&gt;This is notify!&lt;/b&gt; Dismiss with a click or wait for it to disappear." data-options="{&quot;status&quot;:&quot;warning&quot;, &quot;pos&quot;:&quot;bottom-right&quot;}" class="hidden-xs"></div> -->

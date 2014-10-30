@@ -272,10 +272,8 @@
    <script type="text/javascript" src="/vendor/datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
    <!-- Animo-->
    <script src="/vendor/animo/animo.min.js"></script>
-   <!-- Sparklines-->
+   <!-- Sparklines bar charts-->
    <script src="/vendor/sparklines/jquery.sparkline.min.js"></script>
-   <!-- Slimscroll-->
-   <script src="/vendor/slimscroll/jquery.slimscroll.min.js"></script>
    <!-- Store + JSON-->
    <script src="/vendor/store/store+json2.min.js"></script>
    <!-- ScreenFull-->

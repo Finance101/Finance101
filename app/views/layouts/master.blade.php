@@ -29,6 +29,8 @@
 
    <link rel="stylesheet" type="text/css" href="/vendor/jqueryui/css/ui-lightness/jquery-ui-1.10.4.custom.min.css">
    <link rel="stylesheet" type="text/css" href="/vendor/datetimepicker/css/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" type="text/css" href="/vendor/jqueryui/css/ui-lightness/jquery-ui-1.10.4.custom.min.css">
+   @yield('top-script')
 </head>
 
 <body>

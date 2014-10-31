@@ -352,6 +352,7 @@
       });
    </script>
    @yield('bottom-script')
+   @yield('modals')
 </body>
 
 </html>

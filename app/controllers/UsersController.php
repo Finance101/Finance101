@@ -45,7 +45,7 @@ class UsersController extends \BaseController {
 		$user->password = Hash::make(Input::get('password'));
 		$user->save();
 
-		return Redirect::action('HomeController@showLogin');
+		return Redirect::action('AuthController@showLogin');
 	}
 
 	/**

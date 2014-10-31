@@ -8,10 +8,11 @@
    <meta name="keywords" content="">
    <meta name="author" content="">
    <meta name="_token" content="{{ csrf_token() }}">
-   <title>Finance 101</title>
+   <title>Budget Bot</title>
    
    <!-- Bootstrap CSS-->
    <link rel="stylesheet" href="/app/css/bootstrap.css">
+
    <!-- Vendor CSS-->
    <link rel="stylesheet" href="/vendor/fontawesome/css/font-awesome.min.css">
    <link rel="stylesheet" href="/vendor/animo/animate+animo.css">
@@ -24,74 +25,19 @@
    <script src="/vendor/modernizr/modernizr.js" type="application/javascript"></script>
    <!-- FastClick for mobiles-->
    <script src="/vendor/fastclick/fastclick.js" type="application/javascript"></script>
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+   
 
    <link rel="stylesheet" type="text/css" href="/vendor/jqueryui/css/ui-lightness/jquery-ui-1.10.4.custom.min.css">
    <link rel="stylesheet" type="text/css" href="/vendor/datetimepicker/css/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" type="text/css" href="/vendor/jqueryui/css/ui-lightness/jquery-ui-1.10.4.custom.min.css">
+   @yield('top-script')
 </head>
 
 <body>
-   <!-- START Main wrapper-->
-   <div class="wrapper">
-      <!-- START Top Navbar-->
-      <nav role="navigation" class="navbar navbar-default navbar-top navbar-fixed-top">
-         <!-- START navbar header-->
-         <div class="navbar-header">
-            <a href="{{{ action('HomeController@showGetStarted') }}}" class="navbar-brand">
-               <div class="brand-logo">
-                  <img src="/app/img/logo.png" alt="App Logo" class="img-responsive">
-               </div>
-               <div class="brand-logo-collapsed">
-                  <img src="/app/img/logo-single.png" alt="App Logo" class="img-responsive">
-               </div>
-            </a>
-         </div>
-         <!-- END navbar header-->
 
-         <!-- START Nav wrapper-->
-         <div class="nav-wrapper">
-            <!-- START Left navbar-->
-            <ul class="nav navbar-nav">
-               <li>
-                  <!-- Button used to collapse the left sidebar. Only visible on tablet and desktops-->
-                  <a href="#" data-toggle-state="aside-collapsed" class="hidden-xs">
-                     <em class="fa fa-navicon"></em>
-                  </a>
-                  <!-- Button to show/hide the sidebar on mobile. Visible on mobile only.-->
-                  <a href="#" data-toggle-state="aside-toggled" class="visible-xs">
-                     <em class="fa fa-navicon"></em>
-                  </a>
-               </li>
-               <!-- START User avatar toggle-->
-               <li>
-                  <!-- Button used to collapse the left sidebar. Only visible on tablet and desktops-->
-                  <a href="#" data-toggle-state="aside-user">
-                     <em class="fa fa-user"></em>
-                  </a>
-               </li>
-               <!-- END User avatar toggle-->
-               @if (Auth::check())
-               <li class="pull-right">{{HTML::linkaction('AuthController@doLogout', 'Logout')}}</li>
-               @else
-               <li class="pull-right">{{HTML::linkaction('AuthController@doLogin', 'Login')}}</li>
-               @endif
-            </ul>
-             <!-- END Left navbar-->
-            <!-- START Right Navbar-->
-            <ul class="nav navbar-nav navbar-right">
-               
-               <!-- Fullscreen-->
-               <li>
-                  <a href="#" data-toggle="fullscreen">
-                     <em class="fa fa-expand"></em>
-                  </a>
-               </li>
-            </ul>
-      </nav>
+   @include('navbar')
+
+         
       <!-- END Top Navbar-->
       @if (Auth::check())
       <!-- START aside-->
@@ -123,14 +69,7 @@
                <li class="active">
                   <a href="{{{ action('HomeController@showGetStarted') }}}" title="Dashboard" data-toggle="" class="no-submenu">
                      <em class="fa fa-dot-circle-o"></em>
-                     
                      <span class="item-text">Dashboard</span>
-                  </a>
-               </li>
-               <li>
-                  <a href="{{{ action('TransactionsController@index') }}}" title="Widgets" data-toggle="" class="no-submenu">
-                     <em class="fa fa-exchange"></em>
-                     <span class="item-text">Transactions</span>
                   </a>
                </li>
                <li>
@@ -150,8 +89,14 @@
                            <span class="item-text">View All</span>
                         </a>
                      </li>
-                     </ul
-                  <!-- END SubMenu item-->
+                     </ul>
+               <!--  end submenu-->
+               </li>
+               <li>
+                  <a href="{{{ action('TransactionsController@index') }}}" title="Transactions" data-toggle="" class="no-submenu">
+                     <em class="fa fa-exchange"></em>
+                     <span class="item-text">Transactions</span>
+                  </a>
                </li>
                <li>
                   <a href="#" title="Forms" data-toggle="collapse-next" class="has-submenu">
@@ -183,66 +128,13 @@
                   </ul>
                   <!-- END SubMenu item-->
                </li>
-               <li>
-                  <a href="#" title="Charts" data-toggle="collapse-next" class="has-submenu">
-                     <em class="fa fa-bar-chart-o"></em>
-                     <span class="item-text">Charts</span>
-                  </a>
-                  <!-- START SubMenu item-->
-                  <ul class="nav collapse ">
-                     <li>
-                        <a href="chart-flot.html" title="Flot" data-toggle="" class="no-submenu">
-                           <span class="item-text">Flot</span>
-                        </a>
-                     </li>
-                     <li>
-                        <a href="chart-radial.html" title="Radial" data-toggle="" class="no-submenu">
-                           <span class="item-text">Radial</span>
-                        </a>
-                     </li>
-                  </ul>
-                  <!-- END SubMenu item-->
-               </li>
-               <li>
-                  <a href="#" title="Tables" data-toggle="collapse-next" class="has-submenu">
-                     <em class="fa fa-table"></em>
-                     <span class="item-text">Tables</span>
-                  </a>
-                  <!-- START SubMenu item-->
-                  <ul class="nav collapse ">
-                     <li>
-                        <a href="table-standard.html" title="Standard" data-toggle="" class="no-submenu">
-                           <span class="item-text">Standard</span>
-                        </a>
-                     </li>
-                     <li>
-                        <a href="table-extended.html" title="Extended" data-toggle="" class="no-submenu">
-                           <span class="item-text">Extended</span>
-                        </a>
-                     </li>
-                     <li>
-                        <a href="table-datatable.html" title="DataTables" data-toggle="" class="no-submenu">
-                           <span class="item-text">DataTables</span>
-                        </a>
-                     </li>
-                  </ul>
-                  <!-- END SubMenu item-->
-               </li>
+               
                <li class="nav-heading">More tools</li>
                <li>
-                  <a href="#" title="Pages" data-toggle="collapse-next" class="has-submenu">
+                  <a href="{{{ action('GlossaryTermController@index') }}}" title="Pages" class="no-submenu">
                      <em class="fa fa-book"></em>
                      <span class="item-text">Glossary</span>
                   </a>
-                  <!-- START SubMenu item-->
-                  <ul class="nav collapse ">
-                     <li>
-                        <a href="pages/login.html" title="Login" data-toggle="" class="no-submenu">
-                           <span class="item-text">Example</span>
-                        </a>
-                     </li>
-                  </ul>
-                  <!-- END SubMenu item-->
                </li>
                <li>
                   <a href="#" title="Extras" data-toggle="collapse-next" class="has-submenu">
@@ -288,8 +180,8 @@
                <div class="pull-right text-center">
                   <div class="text-sm mb-sm"></div>
                   <div data-bar-color="#cfdbe2" data-height="18" data-bar-width="3" data-bar-spacing="2" class="inlinesparkline">2,3,4,7,5,7,8,9,5,7,8,4,7</div>
-               </div>Dashboard
-               <small>Hi, {{(Auth::user()->first_name)}}. Welcome back!</small>
+               </div><title>@yield('title')</title>
+               <small>Hi, {{(Auth::user()->first_name)}}. Welcome!</small>
             </h3>
             @endif
             <!-- <div data-toggle="notify" data-onload data-message="&lt;b&gt;This is notify!&lt;/b&gt; Dismiss with a click or wait for it to disappear." data-options="{&quot;status&quot;:&quot;warning&quot;, &quot;pos&quot;:&quot;bottom-right&quot;}" class="hidden-xs"></div> -->
@@ -322,17 +214,15 @@
    <!-- Plugins-->
    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
    <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
-   <script src="/vendor/slider/js/bootstrap-slider.js"></script>
-   <script src="/vendor/filestyle/bootstrap-filestyle.min.js"></script>
+   <!-- styling text boxes  -->
    <script src="/vendor/chosen/chosen.jquery.min.js"></script> 
+
    <script type="text/javascript" src="/vendor/jqueryui/js/jquery-ui-1.10.4.custom.min.js"></script>
    <script type="text/javascript" src="/vendor/datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
    <!-- Animo-->
    <script src="/vendor/animo/animo.min.js"></script>
-   <!-- Sparklines-->
+   <!-- Sparklines bar charts-->
    <script src="/vendor/sparklines/jquery.sparkline.min.js"></script>
-   <!-- Slimscroll-->
-   <script src="/vendor/slimscroll/jquery.slimscroll.min.js"></script>
    <!-- Store + JSON-->
    <script src="/vendor/store/store+json2.min.js"></script>
    <!-- ScreenFull-->

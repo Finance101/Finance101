@@ -1,4 +1,5 @@
 <?php
+use Illuminate\Support\MessageBag;
 
 class AuthController extends \BaseController {
 
@@ -88,11 +89,14 @@ class AuthController extends \BaseController {
 	}
 
 	public function doLogin() 
-	{
+	{	$errors = new MessageBag(['password' => ['Email and/or password invalid.']]); // if Auth::attempt fails (wrong credentials) create a new message bag instance.
+
+		$validator = Validator::make($data = Input::all(), User::$rules);
+
 		if (Auth::attempt(array('email' => Input::get('email'), 'password' => Input::get('password')))) {
 		    return Redirect::intended('/transactions');
 		} else {
-		    return Redirect::action('HomeController@showLogin');
+		    return Redirect::back()->withErrors($validator)->withErrors($errors)->withInput()->withInput(Input::except('password'));
 		}
 	}
 

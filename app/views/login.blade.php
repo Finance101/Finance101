@@ -59,10 +59,16 @@
                      </div>
                   </div>
                   <button type="submit" class="btn btn-block btn-primary">Login</button>
-               {{ Form::close() }}
+               {{ Form::close() }}   
+               <!-- error message -->
+                    @if ($error = $errors->first('password'))
+                   <div class="alert alert-danger">
+                   {{ $error }}
+                  </div>
+                  @endif
             </div>
          </div>
-         <!-- END panel-->
+<!-- END panel-->     
       </div>
    </div>
    <!-- END wrapper-->

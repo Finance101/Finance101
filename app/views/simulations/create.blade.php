@@ -41,13 +41,15 @@
     	<div id='title1'>
         <label for="">Name</label> 
         <input id="simulation_title" class='form-control input_field' data-progression="" type="text" data-helper="First name your budget! Be creative! Try: First Time On My Own, or Dream Budget" placeholder="" />
-    	</div>
-
-    	<div>
-    	<input type="submit" class="btn btn-primary pull-right" id="step1btn" style="margin-top:30px">
    		</div>
 
-   		<h4>Transaction</h4>
+    	<div> 	
+    	<input type="submit" class="btn btn-primary pull-right" id="step1btn" style="margin-top:30px"></input>
+   		</div>
+   		<br><br>
+   		<hr>
+
+   		<h4>Intro to Transactions</h4>
    		<p>Next we'll walk you through adding your first expense to your budget.</p>
     	<div id='expenseName1' class="form-piece transaction_form">
 		<label for="">Type</label>

@@ -128,66 +128,13 @@
                   </ul>
                   <!-- END SubMenu item-->
                </li>
-               <li>
-                  <a href="#" title="Charts" data-toggle="collapse-next" class="has-submenu">
-                     <em class="fa fa-bar-chart-o"></em>
-                     <span class="item-text">Charts</span>
-                  </a>
-                  <!-- START SubMenu item-->
-                  <ul class="nav collapse ">
-                     <li>
-                        <a href="chart-flot.html" title="Flot" data-toggle="" class="no-submenu">
-                           <span class="item-text">Flot</span>
-                        </a>
-                     </li>
-                     <li>
-                        <a href="chart-radial.html" title="Radial" data-toggle="" class="no-submenu">
-                           <span class="item-text">Radial</span>
-                        </a>
-                     </li>
-                  </ul>
-                  <!-- END SubMenu item-->
-               </li>
-               <li>
-                  <a href="#" title="Tables" data-toggle="collapse-next" class="has-submenu">
-                     <em class="fa fa-table"></em>
-                     <span class="item-text">Tables</span>
-                  </a>
-                  <!-- START SubMenu item-->
-                  <ul class="nav collapse ">
-                     <li>
-                        <a href="table-standard.html" title="Standard" data-toggle="" class="no-submenu">
-                           <span class="item-text">Standard</span>
-                        </a>
-                     </li>
-                     <li>
-                        <a href="table-extended.html" title="Extended" data-toggle="" class="no-submenu">
-                           <span class="item-text">Extended</span>
-                        </a>
-                     </li>
-                     <li>
-                        <a href="table-datatable.html" title="DataTables" data-toggle="" class="no-submenu">
-                           <span class="item-text">DataTables</span>
-                        </a>
-                     </li>
-                  </ul>
-                  <!-- END SubMenu item-->
-               </li>
+               
                <li class="nav-heading">More tools</li>
                <li>
-                  <a href="#" title="Pages" data-toggle="collapse-next" class="has-submenu">
+                  <a href="{{{ action('GlossaryTermController@index') }}}" title="Pages" class="no-submenu">
                      <em class="fa fa-book"></em>
                      <span class="item-text">Glossary</span>
                   </a>
-                  <!-- START SubMenu item-->
-                  <ul class="nav collapse ">
-                     <li>
-                        <a href="pages/login.html" title="Login" data-toggle="" class="no-submenu">
-                           <span class="item-text">Example</span>
-                        </a>
-                     </li>
-                  </ul>
-                  <!-- END SubMenu item-->
                </li>
                <li>
                   <a href="#" title="Extras" data-toggle="collapse-next" class="has-submenu">
@@ -267,9 +214,9 @@
    <!-- Plugins-->
    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
    <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
-   <script src="/vendor/slider/js/bootstrap-slider.js"></script>
-   <script src="/vendor/filestyle/bootstrap-filestyle.min.js"></script>
+   <!-- styling text boxes  -->
    <script src="/vendor/chosen/chosen.jquery.min.js"></script> 
+
    <script type="text/javascript" src="/vendor/jqueryui/js/jquery-ui-1.10.4.custom.min.js"></script>
    <script type="text/javascript" src="/vendor/datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
    <!-- Animo-->

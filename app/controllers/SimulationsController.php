@@ -74,7 +74,16 @@ class SimulationsController extends \BaseController {
 	{
 		$simulation = Simulation::with('transaction')->findOrFail($id);
 
-		return View::make('simulations.show', compact('simulation'));
+		if(Request::ajax()) {
+			$response_array = [];
+			foreach ($simulation->transaction as $key => $transaction) {
+				
+			}
+			Response::json($response_array);
+		} else {
+			return View::make('simulations.show', compact('simulation'));
+		}
+
 	}
 
 	/**
@@ -85,7 +94,7 @@ class SimulationsController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		$simulation = Simulation::with('transactions')->find($id);
+		$simulation = Simulation::with('transactions', 'user')->find($id);
 
 		return View::make('simulations.edit', compact('simulation'));
 	}

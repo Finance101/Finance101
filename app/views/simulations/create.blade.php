@@ -37,14 +37,13 @@
 		Let's get going.</p>
 	
 			
-	{{ Form::open(array('action' => 'SimulationsController@store', 'class' => 'form-horizontal', 'id'=>'myform')) }}
     	<div id='title1'>
         <label for="">Name</label> 
         <input id="simulation_title" class='form-control input_field' data-progression="" type="text" data-helper="First name your budget! Be creative! Try: First Time On My Own, or Dream Budget" placeholder="" />
    		</div>
 
     	<div> 	
-    	<input type="submit" class="btn btn-primary pull-right" id="step1btn" style="margin-top:30px"></input>
+    	<button class="btn btn-primary pull-right" id="step1btn" style="margin-top:30px">Pls just werk</button>
    		</div>
    		<br><br>
    		<hr>
@@ -88,24 +87,24 @@
 		</div>	
 		
 </div>				
-{{ Form::close() }}
 
 @stop
 
 @section('bottom-script')
   	<script>
+		var domain = '{{{ $_ENV['DOMAIN'] }}}';
 		$( document ).ready(function() {
 			var simulation_id;
-			function submitNewExpense(){
-			} 
-			$("#step1btn").click(function() {
+			
+			$("#step1btn").click(function(e) {
+				console.log('Step 1 Button clicked');
+				e.preventDefault();
 				var dataString = 'title=' + $('#simulation_title').val();
 				console.log(dataString);
-				$.post("http://finance101.dev/simulations", dataString, function(data) {
+				$.post(domain + 'simulations', dataString, function(data) {
 					simulation_id = data.sim_id;
 					console.log(simulation_id);
 				});
-				expenseName1();
 			}); 
 			
 			$("#submitExpensebtn").click(function(e) {
@@ -114,7 +113,7 @@
 				var dataString = 'title=' + $('#transaction_title').val() + '&amount=' + $('#transaction_amount').val() + '&type=' + $('#transaction_type').val() + '&frequency=' + $('#transaction_frequency').val() + '&simulation_id=' + simulation_id;
 				//include simulation_id
 				console.log(dataString);
-				$.post('http://finance101.dev/transactions', dataString, function(data) {
+				$.post(domain + 'transactions', dataString, function(data) {
 					console.log(data.message);
 					console.log(data.approx_daily)
 				});

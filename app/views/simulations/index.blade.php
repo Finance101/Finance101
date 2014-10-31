@@ -1,6 +1,10 @@
 @extends('layouts.master')
 
 @section('content')			
+	<input type="text" class="form-control" id="toDatePicker" placeholder='Projection Date'>
+
+	<div id="chartDisplay"></div>
+	
 	<table>
 		<th>Simulation</th>
 
@@ -10,10 +14,6 @@
 			</tr>
 		@endforeach
 	</table>
-
-	<input type="text" class="form-control" id="toDatePicker">
-
-	<div id="chartDisplay"></div>
 @stop
 
 @section('bottom-script')

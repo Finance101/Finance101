@@ -139,7 +139,8 @@
 @section('bottom-script')
   	<script>
 		$( document ).ready(function() {
-			var simulation_id;
+			var simulation_id,
+				domain = '{{{ $_ENV['DOMAIN'] }}}';
 			$('.form-piece').hide();
 			
 			$('[data-toggle="popover"]').popover();
@@ -178,7 +179,7 @@
 			$("#step1btn").click(function() {
 				var dataString = 'title=' + $('#simulation_title').val();
 				console.log(dataString);
-				$.post("http://finance101.dev/simulations", dataString, function(data) {
+				$.post(domain + 'simulations', dataString, function(data) {
 					simulation_id = data.sim_id;
 					console.log(simulation_id);
 				});
@@ -203,7 +204,7 @@
 				var dataString = 'title=' + $('#transaction_title').val() + '&amount=' + $('#transaction_amount').val() + '&type=' + $('#transaction_type').val() + '&frequency=' + $('#transaction_frequency').val() + '&simulation_id=' + simulation_id;
 				//include simulation_id
 				console.log(dataString);
-				$.post('http://finance101.dev/transactions', dataString, function(data) {
+				$.post(domain + 'transactions', dataString, function(data) {
 					console.log(data.message);
 					console.log(data.approx_daily)
 				});

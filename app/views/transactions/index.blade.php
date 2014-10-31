@@ -1,11 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-	
 
-<!--this table??-->
-                    
-           
             <!-- START DATATABLE 1 -->
             <div class="row">
                <div class="col-lg-12">
@@ -46,7 +42,4 @@
                   </div>
                </div>
      
-                  
-        
-
 @stop

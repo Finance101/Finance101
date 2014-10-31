@@ -11,6 +11,7 @@
 |
 */
 
+
 Route::get('/', 'HomeController@showGetStarted');
 
 Route::post('/', 'HomeController@createFirstBudget');
@@ -25,7 +26,7 @@ Route::post('/login', 'AuthController@doLogin');
 
 Route::get('/login/facebook', 'AuthController@loginFacebook');
 
-// Route::get('/getstarted')
+Route::get('/glossary', 'GlossaryTermController@index');
 
 Route::resource('simulations', 'SimulationsController');
 

@@ -269,28 +269,28 @@
  * Removes a key from the browser storage via element click
  =========================================================*/
 
-(function($, window, document){
-  'use strict';
+// (function($, window, document){
+//   'use strict';
 
-  if( !store || !store.enabled ) return;
+//   if( !store || !store.enabled ) return;
 
-  var Selector = '[data-toggle="reset"]';
+//   var Selector = '[data-toggle="reset"]';
 
-  $(document).on('click', Selector, function (e) {
-      e.preventDefault();
-      var key = $(this).data('key');
+//   $(document).on('click', Selector, function (e) {
+//       e.preventDefault();
+//       var key = $(this).data('key');
       
-      if(key) {
-        store.remove(key);
-        // reload the page
-        window.location.reload();
-      }
-      else {
-        $.error('No storage key specified for reset.');
-      }
-  });
+//       if(key) {
+//         store.remove(key);
+//         // reload the page
+//         window.location.reload();
+//       }
+//       else {
+//         $.error('No storage key specified for reset.');
+//       }
+//   });
 
-}(jQuery, window, document));
+// }(jQuery, window, document));
 
 /**=========================================================
  * Module: datepicker,js
@@ -2716,22 +2716,20 @@
 
   if (typeof $ === 'undefined') { throw new Error('This application\'s JavaScript requires jQuery'); }
 
-  $(window).load(function() {
+  // $(window).load(function() {
 
-    $('.scroll-content').slimScroll({
-        height: '250px'
-    });
+  //   $('.scroll-content').slimScroll({
+  //       height: '250px'
+  //   });
 
-    adjustLayout();
+  //   adjustLayout();
 
-  }).resize(adjustLayout);
+  // }).resize(adjustLayout);
 
 
   $(function() {
 
-    // Init Fast click for mobiles
-    FastClick.attach(document.body);
-
+    
     // inhibits null links
     $('a[href="#"]').each(function(){
       this.href = 'javascript:void(0);';
@@ -2744,15 +2742,6 @@
 
     // popover init
     $('[data-toggle=popover]').popover();
-
-    // Bootstrap slider
-    $('.slider').slider();
-
-    // Chosen
-    $('.chosen-select').chosen();
-
-    // Filestyle
-    $('.filestyle').filestyle();
 
     // Masked inputs initialization
     $.fn.inputmask && $('[data-toggle="masked"]').inputmask();

@@ -14,22 +14,23 @@
    <link rel="stylesheet" href="/app/css/bootstrap.css">
 
    <!-- Vendor CSS-->
+   <!-- font awesome icons -->
    <link rel="stylesheet" href="/vendor/fontawesome/css/font-awesome.min.css">
+   <!-- css animations css -->
    <link rel="stylesheet" href="/vendor/animo/animate+animo.css">
+   <!-- animation spinners and throbbers-->
    <link rel="stylesheet" href="/vendor/csspinner/csspinner.min.css">
    <!-- custom css -->
-   <link rel="stylesheet" href="/app/css/beadmin-theme-a.css">
+   <link rel="stylesheet" href="/app/css/beadmin-theme-d.css">
    <!-- App CSS-->
    <link rel="stylesheet" href="/app/css/app.css">
    <!-- Modernizr JS Script-->
    <script src="/vendor/modernizr/modernizr.js" type="application/javascript"></script>
-   <!-- FastClick for mobiles-->
-   <script src="/vendor/fastclick/fastclick.js" type="application/javascript"></script>
    
-
+   <!-- Datepicker CSS -->
    <link rel="stylesheet" type="text/css" href="/vendor/jqueryui/css/ui-lightness/jquery-ui-1.10.4.custom.min.css">
    <link rel="stylesheet" type="text/css" href="/vendor/datetimepicker/css/bootstrap-datetimepicker.min.css">
-    <link rel="stylesheet" type="text/css" href="/vendor/jqueryui/css/ui-lightness/jquery-ui-1.10.4.custom.min.css">
+   <link rel="stylesheet" type="text/css" href="/vendor/jqueryui/css/ui-lightness/jquery-ui-1.10.4.custom.min.css">
    @yield('top-script')
 </head>
 
@@ -95,7 +96,7 @@
                <li>
                   <a href="{{{ action('TransactionsController@index') }}}" title="Transactions" data-toggle="" class="no-submenu">
                      <em class="fa fa-exchange"></em>
-                     <span class="item-text">Transactions</span>
+                     <span class="item-text">Budget Manager</span>
                   </a>
                </li>
                <li>
@@ -206,25 +207,21 @@
       </section>
       <!-- END Main section-->
    </div>
-   <!-- END Main wrapper-->
+    <!-- END Main wrapper-->
    <!-- START Scripts-->
    <!-- Main vendor Scripts-->
    <!-- moment -->
    <script type="text/javascript" src="/js/moment.min.js"></script>
    <!-- Plugins-->
-   <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+   <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.1.min.js"></script>\
+   <!-- Bootstrap  -->
    <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
-   <!-- styling text boxes  -->
-   <script src="/vendor/chosen/chosen.jquery.min.js"></script> 
-
-   <script type="text/javascript" src="/vendor/jqueryui/js/jquery-ui-1.10.4.custom.min.js"></script>
+   <!-- Datpicker -->
    <script type="text/javascript" src="/vendor/datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
    <!-- Animo-->
    <script src="/vendor/animo/animo.min.js"></script>
-   <!-- Sparklines bar charts-->
+   <!-- Sparklines-->
    <script src="/vendor/sparklines/jquery.sparkline.min.js"></script>
-   <!-- Store + JSON-->
-   <script src="/vendor/store/store+json2.min.js"></script>
    <!-- ScreenFull-->
    <script src="/vendor/screenfull/screenfull.min.js"></script>
    <!--  Highcharts Charts-->

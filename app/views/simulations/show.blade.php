@@ -10,21 +10,27 @@
 	<div id="pieChart"></div>
 	
 	<table class="table table-striped">
-			<tr>
-				<th>Title</th>
-				<th>Amount</th>
-				<th>Type</th>
-				<th>Frequency</th>
-				<th>Edit</th>
-				<th>Delete</th>
-			</tr>
+		<tr>
+			<th>Title</th>
+			<th>Amount</th>
+			<th>Type</th>
+			<th>Frequency</th>
+			<th>Edit</th>
+			<th>Delete</th>
+		</tr>
+		
 		@foreach($simulation->transaction as $transaction)
 			<tr data-transactionId='{{ $transaction->id }}'>
 				<td>{{{ $transaction->title }}}</td>
+				
 				<td>{{{ $transaction->amount }}}</td>
+				
 				<td>{{{ $transaction->type }}}</td>
+				
 				<td>{{{ $transaction->frequency }}}</td>
+				
 				<td><button class="edit-button" data-transactionId='{{ $transaction->id }}'>Edit</button></td>
+				
 				<td><button class='delete-button' data-transactionId='{{ $transaction->id }}'>Delete</button></td>
 			</tr>
 		@endforeach
@@ -32,12 +38,13 @@
 	</table>
 	<!-- Button trigger modal -->
 	<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#transactions-create">
-	  Launch demo modal
+		New Transaction
 	</button>
 @stop
 
 @section('bottom-script')
 	<script type="text/javascript">
+		$(document).ready(function () {
 			var startDate = moment('{{{ $simulation->user->created_at }}}'),
 				endDate,
 				distance,
@@ -50,7 +57,9 @@
 				transactions = [],
 				pieData = [],
 				debits = [],
-				income = 0;
+				income = 0,
+				simulation_id = {{{ $simulation->id }}},
+				leftovers = 100;
 				@foreach($simulation->transaction as $transaction)
 					transactions.push({
 							'title' : '{{{ $transaction->title }}}',
@@ -60,8 +69,17 @@
 					});
 				@endforeach
 
-			console.log(transactions[0].title);
+			// New transaction button
+			$('#new-transaction-submit').click(function () {
+				var dataString = 'title=' + $('#transaction-title').val() + '&amount=' + $('#transaction-amount').val() + '&type=' + $('#transaction-type').val() + '&frequency=' + $('#transaction-frequency').val() + '&simulation_id=' + simulation_id;
+				$.post(domain + 'transactions', dataString, function (data) {
+					if (data.success) {
+						console.log(data.message);						
+					}
+				});
+			});
 
+			// Calculates total monthly income and creates array of debits so that debits can be represented as a share of income in the pie chart
 			transactions.forEach(function (transaction, index, array) {
 				var amount = 0;
 				console.log(transaction.frequency);
@@ -82,17 +100,12 @@
 					income += amount;
 				} else {
 					debits.push(transaction);
-					// console.log('Adding transaction number ' + transaction.title + ' to debits');
 				}
 			});
-			var leftovers = 100;
-			// console.log(debits);
+
 			debits.forEach(function (debit, index, array) {
-				// console.log(income);
-				// console.log(debit.amount * 100 / income);
 				var share = Math.round(debit.amount * 100 / income)
 				var newData = [debit.title, share];
-				// console.log(newData);
 				leftovers -= share;
 				pieData.push(
 					newData
@@ -100,8 +113,6 @@
 			});
 
 			pieData.push(['Surplus', leftovers]);
-
-			// console.log(pieData);
 
 			// Delete button
 			$('.delete-button').click(function () {
@@ -120,6 +131,12 @@
 					});
 					$('tr[data-transactionId=' + id + ']').remove();
 				}
+			});
+
+			// Edit button
+			$('.edit-button').click(function () {
+				var id = $(this).attr('data-transactionId');
+				$('#transactions-edit').modal();
 			});
 
 			// Pie chart
@@ -239,6 +256,7 @@
 					series: chartSeries
 				});
 			});
+		});	
 	</script>
 @stop
 
@@ -252,37 +270,60 @@
 	        <h4 class="modal-title" id="myModalLabel">New Transaction</h4>
 	      </div>
 	      <div class="modal-body">
-	        {{ Form::open(array('action' => 'TransactionsController@store', 'class' => 'form-horizontal')) }}
-			    {{ Form::text('title', Input::old('title'), array('placeholder' => 'Enter title...')) }}
-			   	
-			   	{{$errors->first('title', '<span class="help-block">:message</span>')}} 
+				<input type="text" name="transaction-title" id="transaction-title" placeholder="Name of New Transaction">			   	
 			    
-			    {{ Form::select('frequency', array(
-			    	'' => 'Frequency',
-			    	'daily' => 'Daily',
-			    	'weekly' => 'Weekly',
-			    	'monthly' => 'Monthly'
-			    ), array('placeholder' => 'Choose frequency...')) }}
+				<select name="transaction-frequency" id="transacton-frequency">
+					<option value="">Frequency</option>
+					<option value="daily">Daily</option>
+					<option value="weekly">Weekly</option>
+					<option value="monthly">Monthly</option>
+				</select>
 			    
-			    {{$errors->first('frequency', '<span class="help-block">:message</span>')}}
-			    
-			    {{ Form::number('amount', Input::old('amount'), array('step' => 'any', 'min' => '0', 'placeholder' => 'Enter amount')) }}
-			    
-			    {{$errors->first('amount', '<span class="help-block">:message</span>')}}
-			    
-			    {{ Form::select('type', array(
-			    	'debit' => 'Debit',
-			    	'credit' => 'Credit'
-			    ), array('placeholder' => 'Enter type...')) }}
-			    
-			    {{$errors->first('type', '<span class="help-block">:message</span>')}}
-			    				    
-			    {{ Form::submit() }}
-			{{ Form::close() }}
-	      </div>
+				<input type="number" name="transaction-amount" id="transaction-amount" step="any" min="0" placeholder="Enter Amount">
+
+				<select id="transaction-type">
+					<option value="">Credit/Debit</option>
+					<option value="credit">Credit</option>
+					<option value="debit">Debit</option>
+				</select>			    
+			    	      </div>
 	      <div class="modal-footer">
 	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-	        <button type="button" class="btn btn-primary">Save changes</button>
+	        <button type="button" id="new-transaction-submit" class="btn btn-primary">Save changes</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+	<!-- Modal -->
+	<div class="modal fade" id="transactions-edit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+	        <h4 class="modal-title" id="myModalLabel">New Transaction</h4>
+	      </div>
+	      <div class="modal-body">
+				<input type="text" name="transaction-title" id="transaction-title" placeholder="Name of New Transaction">			   	
+			    
+				<select name="transaction-frequency" id="transacton-frequency">
+					<option value="">Frequency</option>
+					<option value="daily">Daily</option>
+					<option value="weekly">Weekly</option>
+					<option value="monthly">Monthly</option>
+				</select>
+			    
+				<input type="number" name="transaction-amount" id="transaction-amount" step="any" min="0" placeholder="Enter Amount">
+
+				<select id="transaction-type">
+					<option value="">Credit/Debit</option>
+					<option value="credit">Credit</option>
+					<option value="debit">Debit</option>
+				</select>			    
+			    	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	        <button type="button" id="transaction-edit-submit" class="btn btn-primary">Save changes</button>
 	      </div>
 	    </div>
 	  </div>

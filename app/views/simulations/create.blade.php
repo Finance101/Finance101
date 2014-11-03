@@ -45,9 +45,14 @@
         <input id="simulation_title" class='form-control input_field' data-progression="" type="text" data-helper="First name your budget! Be creative! Try: First Time On My Own, or Dream Budget" placeholder="" />
    		</div>
 
+<<<<<<< HEAD
     	<div> 
     	<label for=""></label>
     	<button type="submit" data-toggle="notify" data-message="Budget Created Successfully!" data-options="{&quot;status&quot;:&quot;success&quot;}"class="btn btn-primary pull-right" id="step1btn" style="margin-top:30px">Next</button>
+=======
+    	<div> 	
+    	<button class="btn btn-primary pull-right" id="step1btn" style="margin-top:30px">Next</button>
+>>>>>>> 103f9d1bb3905a4d2d08d51b5b82f0df4d8afba0
    		</div>
    		<br><br>
    		<hr>
@@ -75,17 +80,17 @@
 		<div id='expenseFrequency1' class="form-piece transaction_form">
 		<label for="">Frequency</label>
 		<select class ='form-control input_field' id="transaction_frequency" data-progression="" type="multiple-select" data-helper="We are going to create a series of transactions to simulate how a budget is created. First, start with expenses. Please tell us what kind of expense you currently have." name="expenseFrequency1" value="" placeholder="">
-			<option>Daily</option>
-			<option>Weekly</option>
-			<option>Monthly</option>
+			<option value="daily">Daily</option>
+			<option value="weekly">Weekly</option>
+			<option value="monthly">Monthly</option>
 		</select>
 		</div>
 
 		<div id="expense_type" class="form-piece transaction_form">
 		<label for="">Credit or Debit</label>
 		<select class='form-control input_field' id="transaction_type" data-progression="" data-helper="Last step! Is this a credit or a debit transaction?" name="name" value="" placeholder="">
-			<option>Credit</option>
-			<option>Debit</option>
+			<option value="credit">Credit</option>
+			<option value="debit">Debit</option>
 		</div>
 		</form>
 		<div>
@@ -109,6 +114,8 @@
 					leftovers = 100,
 					pieData = [];
 				transactions.forEach(function (transaction, index, array) {
+					var amount = 0;
+					
 					console.log(transaction.frequency);
 
 					switch(transaction.frequency) {
@@ -201,7 +208,7 @@
 					console.log(data.message);
 					console.log(data.approx_daily)
 					transactions.push({
-						'id' : newId,
+						'id' : data.newId,
 						'title' : newTitle,
 						'amount' : newAmount,
 						'type' : newType,

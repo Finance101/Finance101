@@ -44,7 +44,7 @@
    		</div>
 
     	<div> 	
-    	<button class="btn btn-primary pull-right" id="step1btn" style="margin-top:30px">Pls just werk</button>
+    	<button class="btn btn-primary pull-right" id="step1btn" style="margin-top:30px">Next</button>
    		</div>
    		<br><br>
    		<hr>

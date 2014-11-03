@@ -45,15 +45,11 @@
         <input id="simulation_title" class='form-control input_field' data-progression="" type="text" data-helper="First name your budget! Be creative! Try: First Time On My Own, or Dream Budget" placeholder="" />
    		</div>
 
-<<<<<<< HEAD
+
     	<div> 
     	<label for=""></label>
     	<button type="submit" data-toggle="notify" data-message="Budget Created Successfully!" data-options="{&quot;status&quot;:&quot;success&quot;}"class="btn btn-primary pull-right" id="step1btn" style="margin-top:30px">Next</button>
-=======
-    	<div> 	
-    	<button class="btn btn-primary pull-right" id="step1btn" style="margin-top:30px">Next</button>
->>>>>>> 103f9d1bb3905a4d2d08d51b5b82f0df4d8afba0
-   		</div>
+
    		<br><br>
    		<hr>
 

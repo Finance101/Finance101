@@ -1,19 +1,58 @@
 @extends('layouts.master')
 
-@section('content')			
-	<input type="text" class="form-control" id="toDatePicker" placeholder='Projection Date'>
-
-	<div id="chartDisplay"></div>
+@section('content')
+	<div class="container-fluid">
 	
-	<table>
-		<th>Simulation</th>
+	<h3>Visualizing Your Future</h3><br>
+	<h4>Comparing your budgets. </h4>
+	<p> See for yourself: Choose a projection date. </p>
 
-		@foreach($simulations as $simulation)
-			<tr>	
-				<td><a href="{{ action('SimulationsController@show', $simulation->id) }}">{{{ $simulation->title }}}</a></td>
-			</tr>
-		@endforeach
-	</table>
+	<!-- datepicker -->
+	<div class="datetimepicker input-group date mb-lg">
+    	<input type="text" class="form-control" id="toDatePicker" placeholder='Projection Date'>
+        <span class="input-group-addon">
+        	<span class="fa fa-calendar"></span>
+        </span>
+    </div>
+</div>
+	
+	<div id="chartDisplay"></div>
+
+	<p>Click your budget above to add or remove from the comparison chart. </p>
+
+
+   <div class="panel panel-default">
+                     <div class="panel-heading"> My Budgets | 
+                        <small>All</small>
+                     </div>
+                     <div class="panel-body">
+                        <table id="datatable1" class="table table-striped table-hover">
+                             <thead>
+                             <tr>
+                                <th><i class="fa fa-bullhorn"></i> Budget Name</th>
+                                <th><i class="fa fa-calendar"></i> Created At</th>
+                                <th><i class="fa fa-money"></i> Daily Revenue</th>
+                                <th> </th>
+                             </tr>
+                             </thead>
+                             <tbody>
+                             <tr>
+                                @foreach ($simulations as $simulation)
+                                <td><a href="{{ action('SimulationsController@show', $simulation->id) }}">{{{ $simulation->title }}}</a></td>
+                                <td style="padding:15px">{{{ date("m /d /y",strtotime($simulation->created_at)) }}}</td>
+                                <td style="padding:15px">{{{ $simulation->approx_daily_value }}}</td>
+                                <td style="padding:15px">
+                                      <button class="btn btn-danger btn-xs" type="submit" action="SimulationsController@destroy"><i class="fa fa-trash-o "></i></button>
+                                  </td>
+                             </tr>
+                              @endforeach
+                              </tbody>
+                          </table>
+                         
+                          </div>
+                  </div>
+	
+</div>
 @stop
 
 @section('bottom-script')

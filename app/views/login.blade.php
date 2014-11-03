@@ -19,6 +19,7 @@
    <script src="../vendor/modernizr/modernizr.js" type="application/javascript"></script>
    <!-- FastClick for mobiles-->
    <script src="../vendor/fastclick/fastclick.js" type="application/javascript"></script>
+   
 </head>
 
 <body>
@@ -29,7 +30,7 @@
          <div data-toggle="play-animation" data-play="fadeIn" data-offset="0" class="panel panel-dark panel-flat">
             <div class="panel-heading text-center">
                <a href="#">
-                  <img src="../app/img/logo.png" alt="Image" class="block-center img-rounded">
+                  <img src="../app/images/logo.png" alt="Image" class="block-center img-rounded">
                </a>
                <p class="text-center mt-lg">
                   <strong>SIGN IN TO CONTINUE.</strong>

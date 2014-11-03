@@ -3,145 +3,137 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="assets/img/favicon.ico">
-    <link href='app/css/rotating-card.css' rel='stylesheet' />
+    <link rel="shortcut icon" href="assets/ico/favicon.png">
 
     <title>Budget Bot</title>
 
     <!-- Bootstrap core CSS -->
     <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <link href="assets/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="assets/css/main.css" rel="stylesheet">
+
+    <link href='app/css/rotating-card.css' rel='stylesheet' />
 
     <!-- Custom styles for this template -->
     <link href="assets/css/custom-animations.css" rel="stylesheet">
-    <link href="assets/css/style.css" rel="stylesheet">
+ 
     <link rel="stylesheet" href="/app/css/animations.css">
+
   </head>
 
   <body>
 
-	
- 
-      <!-- START Top Navbar-->
-         @include('navbar')
-      <!-- END Top Navbar-->
-	<div id="h">
-		<div class="container">
-			<div class="row">
-			    <div class="col-md-10 col-md-offset-1 mtb2">
-            <div class="row">
-                    <div class="centered">
-                            <h2 style="color:white">Learn to Budget</h2>
-                            <p>Use our budget simulator to project your financial future.</p>
-                            <p>Compare your budget lifestyles. </p>
-                            <p>Free.</p>
-                        <div id="main-start" class="main-start">
-                                <a href="/users/create" class="btn btn-success btn-lg" id="startNowButton">Start now!</a>
-                         </div>
-                    </div>
-                </div>
-			</div>
-		</div><!-- <! container --> 
-	</div><!-- /h --> 
-</div>
-	<a name="about"></a> <!-- anchor tag for about -->
-	<!-- ********** FIRST ********** -->
-	<div id="w">
-		<div class="row nopadding">
-			<div class="col-md-5 col-md-offset-1 mt">
-				<h4>About</h4>
-				<p>When you're new to the REAL WORLD, like us, finances can seem very overwhelming.</p>
-				<p>What do you want to be when you grow up?</p>
-				<p>How will you even get there?</p>
-				<p>Do you know what your financial future will look like?</p>
-				<p>You have rent, tuition, bills, and you want to have enough money for fun. Well, where do you start? </p>
-				<p><small>warning:cheesy tagline below</small></p>
-				<h3 id ="tagline" class="pulse">Have no fear, Budget Bot, is here!</h3>
-			</div>
-			
-			<div class="col-md-6 pull-right">
-				<img src="assets/img/shot01.png" class="img-responsive alignright" alt="" data-effect="slide-right">
-			</div>
-		</div><!-- <! /row -->
-	</div><!--container --> 
-	
+    <!-- Fixed navbar -->
+  @include('navbar')
 
-	<!--  ********** BLUE SECTION - PICTON ********** --> 
-	<div id="picton">
-		<div class="row nopadding">
-			<div class="col-md-6 pull-left">
-				<img src="assets/img/shot01.png" class="img-responsive alignleft" alt="" data-effect="slide-left">
-			</div>
-			<div class="col-md-5 mt">
-				<h4>Why?</h4>
-				<p>Made By Real Bots</p>
-				<p>Simulate your financial future with our budget simulator.</p>
-				<p>Learn what those crazy finance words mean and how to use them.</p>
-				<p>Simple user interface with guided tutorials.</p>
-				<p>Fits into your budget.</p>
-				<p>It's free!!</p>
-				<p class="mt"><a href="/users/create" class="btn btn-white btn-theme">Register Now!</a></p>
-			</div>
-	
-		</div><!-- <!row --> 
-	</div><!-- Picton --> 
-
-	<a name="team"></a> <!-- team anchor tag -->
-	<!-- ********** BLUE SECTION - JELLY ********** --> 
-	<div id="jelly">
-		<div class="row nopadding">
-			<div class="col-sm-10 col-sm-offset-1">
-				<h4 class="centered">Team</h4>
-         <div class="col-md-4 col-sm-6">
-          @include('teamcards')
-   
+  <div id="headerwrap">
+    <div class="container">
+      <div class="row centered">
+        <div class="col-lg-8 col-lg-offset-2">
+          <h3 style="color:white">“Don't tell me what you value, show me your budget, and I'll tell you what you value.”<small>-J.Biden</small></h3>
+        <h1>New to financial <b>budgeting?</b></h1>
+        <h4 style="color:white">Start learning now!</h4>
+        
+        <a href="/users/create" class="btn btn-success btn-lg"id="startNowButton">Sign Up</a>
         </div>
-		</div><! --/row -->
-	</div><! --/Jelly -->
+      </div><!-- row -->
+    </div><!-- container -->
+  </div><!-- headerwrap -->
 
-	<! -- ********** FOOTER ********** -->
-	<div id="f">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-8 col-md-offset-2 centered">
-					<h4 class="mb">We're still growing...Subscribe for Updates!</h4>
-					<form role="form" action="register.php" method="post" enctype="plain"> 
-	    				<input type="email" name="email" class="subscribe-input" placeholder="Enter your e-mail address..." required>
-						<button class='btn btn-lg btn-info btn-sub subscribe-submit' type="submit">Yes, Please</button>
-					</form>
-				
-				</div>
 
-			</div><! --/row -->
-		</div><! --/container -->
-	</div><! --/F -->
+  <!-- FEATURE SECTION -->
+  <div class="container dg">
+    <div class="row centered">
+      <br><br>
+      <div class="col-lg-8 col-lg-offset-2">
+        <h2><strong>Budget Bot</strong></h2>
+        <p>Budget Bot represents a learning simulation environment for the person new to budgeting. <br>
+          We'll walk you through the budget basics and enable a simulation where you can visualize what your financial future may look like.<br>
+          <br>This is a different approach to a financial planner, in that, we focus primarily on visualizing how budget choices can effect your money overtime.
+          <br>We aim to help you choose your path before executing your budget plan.</p>
+      <p><br/><br/></p>
+      </div>
+      <div class="col-lg-2"></div>
+      <div class="col-lg-10 col-lg-offset-1">
+        <!-- <img class="img-responsive" src="assets/img/munter.png" alt=""> -->
+      </div>
+    </div><!-- row -->
+  </div><!-- container -->
 
-	<! -- ********** CREDITS ********** -->
-	<div id="c">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-6 col-md-offset-3 centered">
-					<p>Copyright 2014 | budgetbot.com</p>
-				</div>
-			</div>
-		</div><! --/container -->
-	</div><! --/C -->
+
+  <div class="container w">
+    <div class="row centered">
+      <br><br>
+      <div class="col-lg-4">
+        <i class="fa fa-table"></i>
+        <h4>DESIGN</h4>
+        <p>Simple and dynamic user interface with guided tutorials.</p>
+      </div><!-- col-lg-4 -->
+
+      <div class="col-lg-4">
+        <i class="fa fa-book"></i>
+        <h4>FINANCIAL GLOSSARY</h4>
+        <p>Those pesky financial terms defined.</p>
+      </div><!-- col-lg-4 -->
+
+      <div class="col-lg-4">
+        <i class="fa fa-money"></i>
+        <h4>FREE</h4>
+        <p>Fits into your current budget. It's free!</p>
+      </div><!-- col-lg-4 -->
+    </div><!-- row -->
+    <br>
+    <br>
+  </div><!-- container -->
+
+
+
+<!-- teamcards row -->
+  <div id="lg">
+    <div class="container">
+   
+      <h4>OUR AWESOME TEAM</h4>
+      <div class="col-md-4 col-sm-6">
+            @include('teamcards')
+      </div>
+  </div>
+<!--   end teamcards -->
+
+  
+  
+  <div id="blue">
+    <div class="container">
+      <div class="row centered">
+        <div class="col-lg-8 col-lg-offset-2">
+          <h4>WE ARE GRADUATES OF CODEUP. PROGRAMMING OUR SKILL. CREATING OUR PASSION.</h4>
+          <p>We believe financing can be simple.</p>
+        </div>
+      </div><!-- row -->
+    </div><!-- container -->
+  </div><! -- r wrap -->
+  
+  
+  <!-- FOOTER -->
+  <div id="f">
+    <div class="container">
+      <div class="row centered">
+       <!-- footer for any extra info -->
+    
+      </div><!-- row -->
+    </div><!-- container -->
+  </div><!-- Footer -->
+
+
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-   
-    <script src="assets/js/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/retina-1.1.0.js"></script>
-    <script src="assets/js/jquery.unveilEffects.js"></script>
-    <script>
-	$('#cheese').click(function() {
-		$(#tagline).addClass("slideUp");
-	});
-</script>
-
   </body>
 </html>

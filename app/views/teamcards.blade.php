@@ -20,7 +20,6 @@
                                     <i class="fa fa-star"></i>
                                     <i class="fa fa-star"></i>
                                     <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
                                 </div>
                             </div>
                         </div>
@@ -113,7 +112,7 @@
                         <div class="content">
                             <div class="main">
                                 <h3 class="name">Mary Klonek-Reyes</h3>
-                                <p class="profession">Product Manager</p>
+                                <p class="profession">Web Developer</p>
                                 <h5><i class="fa fa-map-marker fa-fw text-muted"></i> San Antonio, TX</h5>
                                 <h5><i class="fa fa-building-o fa-fw text-muted"></i> Codeup - Carlsbad </h5>
                                 <h5><i class="fa fa-envelope-o fa-fw text-muted"></i> email@gmail.com</h5>

@@ -22,7 +22,7 @@
 		  tooltipAnimate: true
 		});
 	});
-	</script>
+	 </script>
 @stop
 
 @section('content')
@@ -33,20 +33,25 @@
 	
 	<h3>Getting Started: Creating A Budget</h3><br>
 	<h4>Budgets are the blueprint for financial success.</h4>
-		<p>This form can help you enter car payments, rent, insurance etc to plan a simulated budget. Each additional item will have a visible effect on the budget tracker.
-		Let's get going.</p>
+	<p>Budgeting lies at the foundation of every financial plan. A budget is a plan for your future income and expenditures that you can use as a guideline for spending and saving.
+		Unlike what you might believe, budgeting isn’t all about restricting what you spend money on and cutting out all the fun in your life. It’s really about understanding how much money you have, where it goes, and then planning how to best allocate those funds.</p>
+		<p>This form can help you enter car payments, rent, insurance etc to plan a simulated budget. Each additional item will have a visible effect on the budget simulator.
+		Give your budget a name and then click 'next'. </p>
 	
-			
+		<form id="myform">
     	<div id='title1'>
         <label for="">Name</label> 
         <input id="simulation_title" class='form-control input_field' data-progression="" type="text" data-helper="First name your budget! Be creative! Try: First Time On My Own, or Dream Budget" placeholder="" />
    		</div>
 
-    	<div> 	
-    	<button class="btn btn-primary pull-right" id="step1btn" style="margin-top:30px">Pls just werk</button>
+    	<div> 
+    	<label for=""></label>
+    	<button type="submit" data-toggle="notify" data-message="Budget Created Successfully!" data-options="{&quot;status&quot;:&quot;success&quot;}"class="btn btn-primary pull-right" id="step1btn" style="margin-top:30px">Next</button>
    		</div>
    		<br><br>
    		<hr>
+
+
 
    		<h4>Intro to Transactions</h4>
    		<p>Next we'll walk you through adding your first expense to your budget.</p>
@@ -81,7 +86,7 @@
 			<option>Credit</option>
 			<option>Debit</option>
 		</div>
-		
+		</form>
 		<div>
 		<input id="submitExpensebtn" type="submit" class="btn btn-success pull-right" style="margin-top:30px"/>
 		</div>	

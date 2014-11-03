@@ -21,7 +21,7 @@
    <!-- animation spinners and throbbers-->
    <link rel="stylesheet" href="/vendor/csspinner/csspinner.min.css">
    <!-- custom css -->
-   <link rel="stylesheet" href="/app/css/beadmin-theme-d.css">
+   <link rel="stylesheet" href="/app/css/beadmin-theme-a.css">
    <!-- App CSS-->
    <link rel="stylesheet" href="/app/css/app.css">
    <!-- Modernizr JS Script-->
@@ -37,9 +37,7 @@
 <body>
 
    @include('navbar')
-
-         
-      <!-- END Top Navbar-->
+   
       @if (Auth::check())
       <!-- START aside-->
       <aside class="aside">
@@ -50,15 +48,14 @@
                <!-- User picture-->
                <div class="user-block-picture">
                   <div class="user-block-status">
-                     <img src="app/img/user/02.jpg" alt="Avatar" width="60" height="60" class="img-thumbnail img-circle">
-                     <div class="circle circle-success circle-lg"></div>
+                   
                   </div>
                   <!-- Status when collapsed-->
                </div>
                <!-- Name and Role--> 
                @if (Auth::check())
                <div class="user-block-info">
-                  <span class="user-block-name item-text">Welcome {{(Auth::user()->first_name)}}</span>
+               <small>You are logged in as {{(Auth::user()->email)}}</small>
                   <span class="user-block-role"></span>
                </div>
             </div>
@@ -67,7 +64,7 @@
             <ul class="nav">
                <!-- START Menu-->
                <li class="nav-heading">Main navigation</li>
-               <li class="active">
+               <li class="">
                   <a href="{{{ action('HomeController@showGetStarted') }}}" title="Dashboard" data-toggle="" class="no-submenu">
                      <em class="fa fa-dot-circle-o"></em>
                      <span class="item-text">Dashboard</span>
@@ -94,78 +91,26 @@
                <!--  end submenu-->
                </li>
                <li>
-                  <a href="{{{ action('TransactionsController@index') }}}" title="Transactions" data-toggle="" class="no-submenu">
+                  <a href="#" title="budgetmanager" data-toggle="collapse-next" class="has-submenu">
                      <em class="fa fa-exchange"></em>
                      <span class="item-text">Budget Manager</span>
-                  </a>
-               </li>
-               <li>
-                  <a href="#" title="Forms" data-toggle="collapse-next" class="has-submenu">
-                     <em class="fa fa-edit"></em>
-                     <span class="item-text">Example</span>
                   </a>
                   <!-- START SubMenu item-->
                   <ul class="nav collapse ">
                      <li>
-                        <a href="form-standard.html" title="Standard" data-toggle="" class="no-submenu">
-                           <span class="item-text">Example</span>
-                        </a>
-                     </li>
-                     <li>
-                        <a href="form-extended.html" title="Extended" data-toggle="" class="no-submenu">
-                           <span class="item-text">Example</span>
-                        </a>
-                     </li>
-                     <li>
-                        <a href="form-validation.html" title="Validation" data-toggle="" class="no-submenu">
-                           <span class="item-text">Example</span>
-                        </a>
-                     </li>
-                     <li>
-                        <a href="form-wizard.html" title="Wizard" data-toggle="" class="no-submenu">
-                           <span class="item-text">Example</span>
+                        <a href="{{{ action('SimulationsController@edit') }}}" title="Standard" data-toggle="" class="no-submenu">
+                           <span class="item-text">My Budgets</span>
                         </a>
                      </li>
                   </ul>
-                  <!-- END SubMenu item-->
                </li>
-               
+         
                <li class="nav-heading">More tools</li>
                <li>
                   <a href="{{{ action('GlossaryTermController@index') }}}" title="Pages" class="no-submenu">
                      <em class="fa fa-book"></em>
                      <span class="item-text">Glossary</span>
                   </a>
-               </li>
-               <li>
-                  <a href="#" title="Extras" data-toggle="collapse-next" class="has-submenu">
-                     <em class="fa fa-plus"></em>
-                     <span class="item-text"></span>
-                  </a>
-                  <!-- START SubMenu item-->
-                  <ul class="nav collapse ">
-                     <li>
-                        <a href="timeline.html" title="Timeline" data-toggle="" class="no-submenu">
-                           <span class="item-text">Timeline</span>
-                        </a>
-                     </li>
-                     <li>
-                        <a href="calendar.html" title="Calendar" data-toggle="" class="no-submenu">
-                           <span class="item-text">Calendar</span>
-                        </a>
-                     </li>
-                     <li>
-                        <a href="invoice.html" title="Invoice" data-toggle="" class="no-submenu">
-                           <span class="item-text">Invoice</span>
-                        </a>
-                     </li>
-                     <li>
-                        <a href="search.html" title="Search" data-toggle="" class="no-submenu">
-                           <span class="item-text">Search</span>
-                        </a>
-                     </li>
-                  </ul>
-                  <!-- END SubMenu item-->
                </li>
             </ul>
          </nav>
@@ -211,7 +156,7 @@
    <!-- START Scripts-->
    <!-- Main vendor Scripts-->
    <!-- moment -->
-   <script type="text/javascript" src="/js/moment.min.js"></script>
+   <script type="text/javascript" src="/app/js/moment.min.js"></script>
    <!-- Plugins-->
    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.1.min.js"></script>\
    <!-- Bootstrap  -->

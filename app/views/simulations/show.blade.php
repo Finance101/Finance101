@@ -232,32 +232,53 @@
 
 			//Edit modal submit
 			$('#transaction-edit-submit').click(function () {
-				var dataString = {
-					_method : 'put'
-				};
+				var newTitle = $('#transaction-edit-title').val(),
+				newAmount =  $('#transaction-edit-amount').val(),
+				newType = $('#transaction-edit-type').val(),
+				newFrequency = $('#transacton-edit-frequency').val();
 
-				/*'title=' + $('#transaction-edit-title').val() + '&amount=' + $('#transaction-edit-amount').val() + '&frequency=' + $('#transaction-edit-frequency').val() + '&type=' + $('#transaction-edit-type').val();*/
 				$.ajax({
 						url : domain + 'transactions/' + editId,
 						type : 'post',
 						data : {
 							'_method' : 'put',
-							'title' :  $('#transaction-edit-title').val(),
-							'amount' : $('#transaction-edit-amount').val(),
-							'type' : $('#transaction-edit-type').val(),
-							'frequency' : $('#transaction-edit-frequency').val(),
+							'title' :  newTitle,
+							'amount' : newAmount,
+							'type' : newType,
+							'frequency' : newFrequency,
 							'simulation_id' : simulation_id
 						},
 						success : function (data) {
+							var dataEntry;
+
 							if (data.success) {
+								console.log(data.message);
+								
+								$('#transactions-edit').modal('hide');
+								// update table
+								dataEntry = $('tr[data-transactionId=' + data.id + ']');
+								dataEntry.children('.transaction-title').text(newTitle);
+								dataEntry.children('.transaction-amount').text(newAmount);
+								dataEntry.children('.transaction-type').text(newType);
+								dataEntry.children('.transaction-frequency').text(newFrequency);
+								// update line graph
+								transactions.forEach(function (transaction, element, array) {
+									if (transaction.id == data.id) {
+										transaction.amount = newAmount;
+										transaction.type = newType;
+										transaction.frequency = newFrequency;
+										transaction.title = newTitle;
+									}
+								});
+								displayLineGraph();
+								// update pie graph
+								displayPieChart();
+							} else {
 								console.log(data.message);
 							}
 						}
 					});
-				$('#transactions-edit').modal('hide');
-				// update table
-				// update line graph
-				// update pie graph
+
 			});
 
 			// Projection date picker

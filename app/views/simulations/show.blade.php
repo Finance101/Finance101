@@ -88,6 +88,7 @@
 						$('#transactions-table').append(
 							'<tr data-transactionId=' + newId + '><td class="transaction-title">' + newTitle + '</td><td class="transaction-amount">' + newAmount + '</td><td class="transaction-type">' + newType + '</td><td class="transaction-frequency">' + newFrequency + '</td><td><button class="edit-button" data-transactionId=' + newId + '>Edit</button></td><td><button class="delete-button" data-transactionId=' + newId + '>Delete</button></td></tr>');
 						$('.delete-button').click(attemptDelete);
+						$('.edit-button').click(attemptEdit);
 					}
 				});
 				$('#transactions-create').modal('hide');
@@ -230,8 +231,7 @@
 				$('#transactions-edit').modal();
 			});
 
-			//Edit modal submit
-			$('#transaction-edit-submit').click(function () {
+			function attemptEdit () {
 				var newTitle = $('#transaction-edit-title').val(),
 				newAmount =  $('#transaction-edit-amount').val(),
 				newType = $('#transaction-edit-type').val(),
@@ -278,8 +278,9 @@
 							}
 						}
 					});
-
-			});
+			}
+			//Edit modal submit
+			$('#transaction-edit-submit').click(attemptEdit);
 
 			// Projection date picker
 			$( "#toDatePicker" ).datetimepicker();

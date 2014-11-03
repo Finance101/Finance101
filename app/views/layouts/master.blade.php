@@ -64,12 +64,6 @@
             <ul class="nav">
                <!-- START Menu-->
                <li class="nav-heading">Main navigation</li>
-               <li class="">
-                  <a href="{{{ action('HomeController@showGetStarted') }}}" title="Dashboard" data-toggle="" class="no-submenu">
-                     <em class="fa fa-dot-circle-o"></em>
-                     <span class="item-text">Dashboard</span>
-                  </a>
-               </li>
                <li>
                   <a href="{{{ action('SimulationsController@index') }}}" title="Elements" data-toggle="collapse-next" class="has-submenu">
                      <em class="fa fa-flask"></em>

@@ -40,6 +40,15 @@
 	<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#transactions-create">
 		New Transaction
 	</button>
+	
+	<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#creditDefinition">definition of credit
+	 
+	</button>
+
+	<h1>definition of <a data-toggle="modal" data-target="#creditDefinition">credit</a> </h1>
+
+	
+
 @stop
 
 @section('bottom-script')
@@ -377,6 +386,31 @@
 @stop
 
 @section('modals')
+
+<div class="modal fade" id="creditDefinition" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+	        <h4 class="modal-title" id="myModalLabel">New Transaction</h4>
+	      </div>
+	      <div class="modal-body">
+	      <h1>Definition of "Credit"</h1>
+	      <h4>1. A contractual agreement in which a borrower receives something of value now and agrees to repay the lender at some date in the future, generally with interest. The term also refers to the borrowing capacity of an individual or company. 
+
+			2. An accounting entry that either decreases assets or increases liabilities and equity on the company's balance sheet. On the company's income statement, a debit will reduce net income, while a credit will increase net income.</h4>
+
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	        <button type="button" class="btn btn-primary">Save changes</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+
+
 	<!-- Modal -->
 	<div class="modal fade" id="transactions-create" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	  <div class="modal-dialog">

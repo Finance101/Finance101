@@ -31,6 +31,7 @@
 		} -->
 <div class="container-fluid">
 	
+	<div id="pieChart"></div>
 	<h3>Getting Started: Creating A Budget</h3><br>
 	<h4>Budgets are the blueprint for financial success.</h4>
 	<p>Budgeting lies at the foundation of every financial plan. A budget is a plan for your future income and expenditures that you can use as a guideline for spending and saving.
@@ -99,8 +100,82 @@
   	<script>
 		var domain = '{{{ $_ENV['DOMAIN'] }}}';
 		$( document ).ready(function() {
-			var simulation_id;
+			var simulation_id,
+				transactions = [];
 			
+			function displayPieChart () {
+				var debits = [],
+					income = 0,
+					leftovers = 100,
+					pieData = [];
+				transactions.forEach(function (transaction, index, array) {
+					console.log(transaction.frequency);
+
+					switch(transaction.frequency) {
+						case 'daily' : 
+							amount = transaction.amount * 30;
+							break;
+						case 'weekly' :
+							amount = transaction.amount * 4;
+							break;
+						case 'monthly' :
+							amount = transaction.amount;
+							break;
+					}
+					console.log(amount);
+
+					if (transaction.type == 'credit') {
+						income += amount;
+					} else {
+						debits.push(transaction);
+					}
+				});
+
+				debits.forEach(function (debit, index, array) {
+					var share = Math.round(debit.amount * 100 / income)
+					var newData = [debit.title, share];
+					leftovers -= share;
+					pieData.push(
+						newData
+					);
+				});
+
+				pieData.push(['Surplus', leftovers]);
+
+				// Pie chart
+				$('#pieChart').highcharts({
+						chart: {
+							plotBackgroundColor: null,
+							plotBorderWidth: 1,//null,
+							plotShadow: false
+						},
+						title: {
+							text: 'How this budget is split'
+						},
+						tooltip: {
+							pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+						},
+						plotOptions: {
+							pie: {
+								allowPointSelect: true,
+								cursor: 'pointer',
+								dataLabels: {
+									enabled: true,
+									format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+									style: {
+										color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+									}
+								}
+							}
+						},
+						series: [{
+							type: 'pie',
+							name: 'Income',
+							data: pieData
+						}]
+					});
+			}	
+
 			$("#step1btn").click(function(e) {
 				console.log('Step 1 Button clicked');
 				e.preventDefault();
@@ -114,15 +189,28 @@
 			
 			$("#submitExpensebtn").click(function(e) {
 				e.preventDefault();
+				var newTitle = $('#transaction_title').val(),
+					newAmount = $('#transaction_amount').val(),
+					newType = $('#transaction_type').val(),
+					newFrequency = $('#transaction_frequency').val();
 				//make datastring with columns for transactions table
-				var dataString = 'title=' + $('#transaction_title').val() + '&amount=' + $('#transaction_amount').val() + '&type=' + $('#transaction_type').val() + '&frequency=' + $('#transaction_frequency').val() + '&simulation_id=' + simulation_id;
+				var dataString = 'title=' + newTitle + '&amount=' + newAmount + '&type=' + newType + '&frequency=' + newFrequency + '&simulation_id=' + simulation_id;
 				//include simulation_id
 				console.log(dataString);
 				$.post(domain + 'transactions', dataString, function(data) {
 					console.log(data.message);
 					console.log(data.approx_daily)
+					transactions.push({
+						'id' : newId,
+						'title' : newTitle,
+						'amount' : newAmount,
+						'type' : newType,
+						'frequency' : newFrequency
+					});
 				});
 				
+				displayPieChart();
+
 				$('.input_field').val('');
 			
 			}); 

@@ -5,22 +5,23 @@
 <p>After you’ve had a chance to monitor your income and expenses for a month or two, you will be more aware of areas that need adjusting.</p><p>
 Maybe your initial monthly income estimates were off, or perhaps you didn’t account for expenses like car repairs or veterinarian bills. Now you can make the necessary and informed adjustments to have a budget that is more comprehensive and well-rounded.</p>
 <p>Once you work out all the kinks in your budget, you should be able to stick to it for a length of time. However, it’s not meant to be set in stone. You must manage your budget regularly by accounting for changes in your income and spending needs. It’s recommended you do this every three months.</p>
-<p>Below choose a calendar date to project your future.</p>			
-	<div class="col-md-10">	
+<p>Below choose a calendar date to project your future.</p>	
+
+<div class="col-md-10">	
 	<!-- datepicker -->
 	<div class="col-md-4 datetimepicker input-group date mb-lg">
    	<input type="text" class="form-control" id="toDatePicker" placeholder='Projection Date'></input>
        <span class="input-group-addon">
        <span class="fa fa-calendar"></span>
        </span>
-   </div>
+   	</div>
 
 	<div id="chartDisplay"></div>
-
 </div>
+
 <div class="col-md-10">	
 <div id="panel-2" class="panel panel-warning">
-<div class="panel-heading portlet-handler"> My Budgets</div>
+<div class="panel-heading"> My Budgets</div>
 <div class="panel-body">
 	<table class="table table-striped table-hover">
 		<thead>
@@ -42,6 +43,7 @@ Maybe your initial monthly income estimates were off, or perhaps you didn’t ac
 		@endforeach
 	</tbody>
 	</table>
+</div>
 </div>
 </div>
 </div>

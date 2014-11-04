@@ -1,9 +1,9 @@
 @extends('layouts.master')
-@section('top-script')
 
-<link href='/vendor/progression/progression.min.css' rel='stylesheet' type='text/css'>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-<script type="text/javascript" src="/vendor/progression/progression.js"></script>
+@section('top-script')
+	<link href='/vendor/progression/progression.min.css' rel='stylesheet' type='text/css'>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script type="text/javascript" src="/vendor/progression/progression.js"></script>
 	
 	<script>
 	jQuery(document).ready(function($) {
@@ -26,6 +26,7 @@
 @stop
 
 @section('content')
+<<<<<<< HEAD
 		<!-- foreach($simulations as $simulation) {	
 			$sim_ids_array[$simulation->id] = $simulation->title;
 		} -->
@@ -92,9 +93,76 @@
 		<div>
 		<input id="submitExpensebtn" type="submit" class="btn btn-success pull-right" style="margin-top:30px"/>
 		</div>	
+=======
+	<div class="container-fluid">
 		
-</div>				
+		<div id="pieChart"></div>
+		
+		<h3>Getting Started: Creating A Budget</h3><br>
+>>>>>>> f65331c9a4ab2bced75d5fd7bd3a170d91936879
+		
+		<h4>Budgets are the blueprint for financial success.</h4>
+			<p>This form can help you enter car payments, rent, insurance etc to plan a simulated budget. Each additional item will have a visible effect on the budget tracker.
+			Let's get going.</p>
+		
+				
+	    	<div id='title1'>
+		        <label for="">Name</label> 
+		        
+		        <input id="simulation_title" class='form-control input_field' data-progression="" type="text" data-helper="First name your budget! Be creative! Try: First Time On My Own, or Dream Budget" placeholder="" />
+	   		</div>
 
+	    	<div> 	
+		    	<button class="btn btn-primary pull-right" id="step1btn" style="margin-top:30px">Next</button>
+	   		</div>
+	   		
+	   		<br><br>
+	   		
+	   		<hr>
+
+	   		<h4>Intro to Transactions</h4>
+	   		
+	   		<p>Next we'll walk you through adding your first expense to your budget.</p>
+			
+			<div id="expense_type" class="form-piece transaction_form">
+				<label for="">Type</label>
+				
+				<select class='form-control input_field' id="transaction_type" data-progression="" data-helper="Last step! Is this a credit or a debit transaction?" name="name" value="" placeholder="">
+					<option value="credit">Credit</option>
+					<option value="debit">Debit</option>
+				</select>
+			</div>
+
+	    	<div id='expenseName1' class="form-piece transaction_form">
+				<label for="">Title</label>
+				<select id="transaction_title"class='form-control input_field' data-progression="" type="multiple-select" data-helper="We are going to create a series of transactions to simulate how a budget is created. First, start with expenses. Please tell us what kind of expense you currently have." name="name" value="" placeholder="">
+					<option>Paycheck</option>
+					<option>Rent</option>
+					<option>Car Payment</option>
+					<option>Electric Bill</option>
+					<option>Student Loans</option>
+					<option>Insurance</option>
+				</select>
+			</div>
+			
+			<div id='expenseAmount1'class="form-piece transaction_form">
+				<label for="">Amount of Item</label>
+				<input data-progression="" data-helper="Now that we have an expense type, please tell us how much $$ the expense is per occurance. i.e., $349.56" type="text" id="transaction_amount" placeholder='Amount' class='form-control input_field'>
+			</div>
+
+			<div id='expenseFrequency1' class="form-piece transaction_form">
+				<label for="">Frequency</label>
+				<select class ='form-control input_field' id="transaction_frequency" data-progression="" type="multiple-select" data-helper="We are going to create a series of transactions to simulate how a budget is created. First, start with expenses. Please tell us what kind of expense you currently have." name="expenseFrequency1" value="" placeholder="">
+					<option value="daily">Daily</option>
+					<option value="weekly">Weekly</option>
+					<option value="monthly">Monthly</option>
+				</select>
+			</div>
+			
+			<div>
+				<input id="submitExpensebtn" type="submit" class="btn btn-success pull-right" style="margin-top:30px"/>
+			</div>			
+	</div>				
 @stop
 
 @section('bottom-script')

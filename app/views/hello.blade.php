@@ -52,6 +52,7 @@
     <div class="row centered">
       <br><br>
       <div class="col-lg-8 col-lg-offset-2">
+        <a name="#about"></a>
         <h2><strong>Budget Bot</strong></h2>
         <p>Budget Bot represents a learning simulation environment for the person new to budgeting. <br>
           We'll walk you through the budget basics and enable a simulation where you can visualize what your financial future may look like.<br>
@@ -93,7 +94,7 @@
   </div><!-- container -->
 
 
-
+<a name="#team"></a>
 <!-- teamcards row -->
   <div id="lg">
     <div class="container">

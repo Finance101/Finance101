@@ -1,15 +1,30 @@
 @extends('layouts.master')
 
 @section('content')
-	<h1>{{{ $simulation->title }}}</h1>
+	<h2>Budget | {{{ $simulation->title }}}</h2>
+	<p>Here is an individual break down of a budget.</p>
+	<p>Look through your budget and all your receipts. Can you find an expense that can be cut?</p>
+	<p>Maybe you could bring your lunch to work twice a week, or set up a carpool with a friend.</p>
+	<p> Just c­utting out restaurant and gas costs can help increase the amount of money you have available for savings and purchases.</p>
+	<!-- datepicker -->
+	<div class="col-md-4 datetimepicker input-group date mb-lg">
+   	<input type="text" class="form-control" id="toDatePicker" placeholder='Projection Date'></input>
+       <span class="input-group-addon">
+       <span class="fa fa-calendar"></span>
+       </span>
+   </div></div>
+   <!-- charts -->
+	<div class="row">
+	<div class="col-md-5" id="chartDisplay"></div>
+	<div class="col-md-5" id="pieChart"></div>
+	</div>
 
-	<input type='text' id="toDatePicker" placeholder='Projection Date'>
-	
-	<div id="chartDisplay"></div>
-
-	<div id="pieChart"></div>
-	
-	<table id="transactions-table" class="table table-striped">
+	<!-- START panel-->
+	<div class="col-md-10">
+   <div id="panel-2" class="panel panel-green">
+   <div class="panel-heading portlet-handler">Transactions</div>
+   <div class="panel-body">
+   <table id="transactions-table" class="table table-striped">
 		<tr>
 			<th>Title</th>
 			<th>Amount</th>
@@ -22,28 +37,24 @@
 		@foreach($simulation->transaction as $transaction)
 			<tr data-transactionId='{{ $transaction->id }}'>
 				<td class="transaction-title">{{{ $transaction->title }}}</td>
-				
 				<td class="transaction-amount">{{{ $transaction->amount }}}</td>
-				
 				<td class="transaction-type">{{{ $transaction->type }}}</td>
-				
 				<td class="transaction-frequency">{{{ $transaction->frequency }}}</td>
-				
-				<td><button class="edit-button" data-transactionId='{{ $transaction->id }}'>Edit</button></td>
-				
-				<td><button class='delete-button' data-transactionId='{{ $transaction->id }}'>Delete</button></td>
+				<td><button class="edit-button btn btn-primary btn-xs" data-transactionId='{{ $transaction->id }}'><i class="fa fa-pencil"></i></button></td>
+				<td><button class='delete-button btn btn-danger btn-xs' data-transactionId='{{ $transaction->id }}'><i class="fa fa-trash-o "></i></button></td>
 			</tr>
 		@endforeach
-
 	</table>
+	<br><br>
 	<!-- Button trigger modal -->
 	<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#transactions-create">
 		New Transaction
 	</button>
+</div>
+ </div>
+ </div>
+<!-- END panel-->
 	
-	<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#creditDefinition">definition of credit
-	 
-	</button>
 
 	<h1>definition of <a data-toggle="modal" data-target="#creditDefinition">credit</a> </h1>
 
@@ -95,7 +106,7 @@
 						simulations[0].approx_daily_value = data.approx_daily;
 						displayLineGraph();
 						$('#transactions-table').append(
-							'<tr data-transactionId=' + newId + '><td class="transaction-title">' + newTitle + '</td><td class="transaction-amount">' + newAmount + '</td><td class="transaction-type">' + newType + '</td><td class="transaction-frequency">' + newFrequency + '</td><td><button class="edit-button" data-transactionId=' + newId + '>Edit</button></td><td><button class="delete-button" data-transactionId=' + newId + '>Delete</button></td></tr>');
+							'<tr data-transactionId=' + newId + '><td class="transaction-title">' + newTitle + '</td><td class="transaction-amount">' + newAmount + '</td><td class="transaction-type">' + newType + '</td><td class="transaction-frequency">' + newFrequency + '</td><td><button class="edit-button btn btn-primary btn-xs" data-transactionId=' + newId + '><i class="fa fa-pencil"></i></button></td><td><button class="delete-button delete-button btn btn-danger btn-xs" data-transactionId=' + newId + '><i class="fa fa-trash-o "></i></button></td></tr>');
 						$('.delete-button').click(attemptDelete);
 						$('.edit-button').click(attemptEdit);
 					}

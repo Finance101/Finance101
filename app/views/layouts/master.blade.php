@@ -120,24 +120,22 @@
                <div class="pull-right text-center">
                   <div class="text-sm mb-sm"></div>
                   <div data-bar-color="#cfdbe2" data-height="18" data-bar-width="3" data-bar-spacing="2" class="inlinesparkline">2,3,4,7,5,7,8,9,5,7,8,4,7</div>
-               </div><title>@yield('title')</title>
+               </div>
+               <title>@yield('title')</title>
                <small>Hi, {{(Auth::user()->first_name)}}. Welcome!</small>
             </h3>
             @endif
             <!-- <div data-toggle="notify" data-onload data-message="&lt;b&gt;This is notify!&lt;/b&gt; Dismiss with a click or wait for it to disappear." data-options="{&quot;status&quot;:&quot;warning&quot;, &quot;pos&quot;:&quot;bottom-right&quot;}" class="hidden-xs"></div> -->
-            <div class="row">
+            <div style="padding: 10px"class="row">
                <!-- START dashboard main content-->
-               <section class="col-md-9">
+               <section class="col-md-12">
                   <!-- START chart-->
-                  <div class="row">
+                  <div class="row panel">
                      <div class="col-lg-12">
 
                        <!--  CONTENT GOES HERE -->
                       @yield('content') 
-                        
-
-
-                     
+                    
                </section>
                
             </div>

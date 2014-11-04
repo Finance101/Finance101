@@ -12,8 +12,7 @@
                                 <h3 class="name">Ryan Ingersoll</h3>
                                 <p class="profession">Web Developer</p>
                                 <h5><i class="fa fa-map-marker fa-fw text-muted"></i> San Antonio, TX</h5>
-                                <h5><i class="fa fa-building-o fa-fw text-muted"></i> Codeup - Carlsbad </h5>
-                                <h5><i class="fa fa-envelope-o fa-fw text-muted"></i> email@gmail.com</h5>
+                                <h5><i class="fa fa-envelope-o fa-fw text-muted"></i> ingytrader@gmail.com</h5>
                             </div>
                             <div class="footer">
                                 <div class="rating">
@@ -63,8 +62,7 @@
                                 <h3 class="name">Frank Rodriguez</h3>
                                 <p class="profession">Web Developer</p>
                                 <h5><i class="fa fa-map-marker fa-fw text-muted"></i> San Antonio, TX</h5>
-                                <h5><i class="fa fa-building-o fa-fw text-muted"></i> Codeup - Carlsbad </h5>
-                                <h5><i class="fa fa-envelope-o fa-fw text-muted"></i> email@gmail.com</h5>
+                                <h5><i class="fa fa-envelope-o fa-fw text-muted"></i> frank.aaron.rodriguez@gmail.com</h5>
                             </div>
                             <div class="footer">
                                 <div class="rating">
@@ -114,8 +112,7 @@
                                 <h3 class="name">Mary Klonek-Reyes</h3>
                                 <p class="profession">Web Developer</p>
                                 <h5><i class="fa fa-map-marker fa-fw text-muted"></i> San Antonio, TX</h5>
-                                <h5><i class="fa fa-building-o fa-fw text-muted"></i> Codeup - Carlsbad </h5>
-                                <h5><i class="fa fa-envelope-o fa-fw text-muted"></i> email@gmail.com</h5>
+                                <h5><i class="fa fa-envelope-o fa-fw text-muted"></i> mary.reyes00@gmail.com</h5>
                             </div>
                             <div class="footer">
                                 <div class="rating">

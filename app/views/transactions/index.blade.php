@@ -2,14 +2,10 @@
 
 @section('content')
 
-            <!-- START DATATABLE 1 -->
-            <div class="row">
-               <div class="col-lg-12">
-                  <div class="panel panel-default">
-                     <div class="panel-heading">Budget Name |
-                        <small>Transactions</small>
-                     </div>
-                     <div class="panel-body">
+           
+                  <div id="panel-2" class="panel panel-green">
+   <div class="panel-heading portlet-handler">Transactions</div>
+   <div class="panel-body">
                         <table id="datatable1" class="table table-striped table-hover">
                               <thead>
                               <tr>

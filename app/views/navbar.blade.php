@@ -32,8 +32,8 @@
                   </a>
                </li>
            	   <li>{{HTML::linkaction('HomeController@showWelcome','Home')}}</li>
-           	   <li><a href="http://finance101.dev/#about">About</a></li>
-           	   <li><a href="http://finance101.dev/#team">Team</a></li>
+           	   <li><a href="http://budgetbot.info/#about">About</a></li>
+           	   <li><a href="http://budgetbot.info/#team">Team</a></li>
             </ul>
              <!-- END Left navbar-->
             <!-- START Right Navbar-->

@@ -38,9 +38,10 @@
           <h3 style="color:white">“Don't tell me what you value, show me your budget, and I'll tell you what you value.”<small>-J.Biden</small></h3>
         <h1>New to financial <b>budgeting?</b></h1>
         <h4 style="color:white">Start learning now!</h4>
-        
+         @if (!Auth::check())
         <a href="/users/create" class="btn btn-success btn-lg"id="startNowButton">Sign Up</a>
-        </div>
+         @endif</div>
+       
       </div><!-- row -->
     </div><!-- container -->
   </div><!-- headerwrap -->

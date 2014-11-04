@@ -34,13 +34,13 @@
            	   <li>{{HTML::linkaction('HomeController@showWelcome','Home')}}</li>
            	   <li><a href="http://finance101.dev/#about">About</a></li>
            	   <li><a href="http://finance101.dev/#team">Team</a></li>
-               <li><a href="http://finance101.dev/simulations">Budget Bot</a></li>
             </ul>
              <!-- END Left navbar-->
             <!-- START Right Navbar-->
             <ul class="nav navbar-nav navbar-right">
                <!-- END User avatar toggle-->
                @if (Auth::check())
+               <li class="pulse"><a href="http://finance101.dev/simulations">You are logged in! BACK TO BUDGET BOT!!</a></li>
                <li >{{HTML::linkaction('AuthController@doLogout', 'Logout')}}</li>
                @else
                <li class="pulse">{{HTML::linkaction('UsersController@create', 'Sign Up')}}<li>

@@ -25,14 +25,14 @@
                     </div> <!-- end front panel -->
                     <div class="back">
                         <div class="header">
-                            <h5 class="motto">"To be or not to be, this is my awesome motto!"</h5>
+                            <h5 class="motto">"Full Stack Web Developer and Financial Engineer"</h5>
                         </div> 
                         <div class="content">
                             <div class="main">
                                 <h4 class="text-center">Experience</h4>
-                                <p>In the project since 2011</p>
+                                <p>Former commodities trader and financial guru</p>
                                 <h4 class="text-center">Areas of Expertise</h4>
-                                <p>Web design, Adobe Photoshop, HTML5, CSS3, Corel and many others...</p>
+                                <p>PHP, HTML, JavaScript, Laravel, MySQL</p>
                             </div>
                         </div>
                         <div class="footer">
@@ -75,14 +75,14 @@
                     </div> <!-- end front panel -->
                     <div class="back">
                         <div class="header">
-                            <h5 class="motto">"To be or not to be, this is my awesome motto!"</h5>
+                            <h5 class="motto">"I'm eager to hone my skills as a developer by tackling new and exciting problems"</h5>
                         </div> 
                         <div class="content">
                             <div class="main">
                                 <h4 class="text-center">Experience</h4>
-                                <p>Mike was working with our team since 2012.</p>
+                                <p>Recent High School graduate =</p>
                                 <h4 class="text-center">Areas of Expertise</h4>
-                                <p>Web design, Adobe Photoshop, HTML5, CSS3, Corel and many others...</p>
+                                <p>PHP, HTML, JavaScript, Laravel, MySQL</p>
                             </div>
                         </div>
                         <div class="footer">
@@ -130,9 +130,9 @@
                         <div class="content">
                             <div class="main">
                                 <h4 class="text-center">Experience</h4>
-                                <p>Inna was working with our team since 2012.</p>
+                                <p>Mary was working with our team since 2014.</p>
                                 <h4 class="text-center">Areas of Expertise</h4>
-                                <p>Web design, Adobe Photoshop, HTML5, CSS3, Corel and many others...</p>
+                                <p>PHP, HTML, JavaScript, Laravel, MySQL</p>
                             </div>
                         </div>
                         <div class="footer">

@@ -132,10 +132,12 @@
 					}
 					console.log(amount);
 					if (transaction.type == 'credit') {
-						income += amount;
+						income += parseInt(amount);
 					} else {
 						debits.push(transaction);
 					}
+					console.log('Income is ' + income);
+					console.log('Amount for ' + transaction.type + ' ' + transaction.title + ': ' + amount);
 				});
 				debits.forEach(function (debit, index, array) {
 					var share = Math.round(debit.amount * 100 / income)
@@ -178,7 +180,8 @@
 							data: pieData
 						}]
 					});
-			}	
+			}
+
 			$("#step1btn").click(function(e) {
 				console.log('Step 1 Button clicked');
 				e.preventDefault();
@@ -210,11 +213,10 @@
 						'type' : newType,
 						'frequency' : newFrequency
 					});
+					console.log(transactions);
+					displayPieChart();
+					$('.input_field').val('');
 				});
-				
-				displayPieChart();
-				$('.input_field').val('');
-			
 			}); 
 			
 		 }); 

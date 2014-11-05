@@ -151,6 +151,7 @@ body, .wrapper > section {
   background-image: -o-linear-gradient(left, #23b7e5 0%, #30c8ca 100%);
   background-image: linear-gradient(to right, #23b7e5 0%, #30c8ca 100%);
   background-repeat: repeat-x;
+  opacity:;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff23b7e5', endColorstr='#ff30c8ca', GradientType=1);
 }
 @media only screen and (min-width: 768px) {

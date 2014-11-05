@@ -95,7 +95,6 @@ class SimulationsController extends \BaseController {
 	public function edit($id)
 	{
 		$simulation = Simulation::with('transactions', 'user')->find($id);
-
 		return View::make('simulations.edit', compact('simulation'));
 	}
 

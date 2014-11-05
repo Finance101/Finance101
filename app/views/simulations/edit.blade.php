@@ -1,1 +1,5 @@
-/vagrant/sites/finance101.dev/app/views/simulations/edit.blade.php
+	@extends('layouts.master')
+
+@section('content')
+
+                  @stop

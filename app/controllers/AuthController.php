@@ -94,7 +94,7 @@ class AuthController extends \BaseController {
 		$validator = Validator::make($data = Input::all(), User::$rules);
 
 		if (Auth::attempt(array('email' => Input::get('email'), 'password' => Input::get('password')))) {
-		    return Redirect::intended('/transactions');
+		    return Redirect::intended('/simulations/create');
 		} else {
 		    return Redirect::back()->withErrors($validator)->withErrors($errors)->withInput()->withInput(Input::except('password'));
 		}

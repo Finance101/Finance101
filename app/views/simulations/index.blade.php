@@ -1,19 +1,52 @@
 @extends('layouts.master')
 
-@section('content')			
-	<input type="text" class="form-control" id="toDatePicker" placeholder='Projection Date'>
+@section('content')
+<h3>Visualizing Your Future</h3>
+<p>After you’ve had a chance to monitor your income and expenses for a month or two, you will be more aware of areas that need adjusting.</p><p>
+Maybe your initial monthly income estimates were off, or perhaps you didn’t account for expenses like car repairs or veterinarian bills. Now you can make the necessary and informed adjustments to have a budget that is more comprehensive and well-rounded.</p>
+<p>Once you work out all the kinks in your budget, you should be able to stick to it for a length of time. However, it’s not meant to be set in stone. You must manage your budget regularly by accounting for changes in your income and spending needs. It’s recommended you do this every three months.</p>
+<p>Below choose a calendar date to project your future.</p>	
+
+<div class="col-md-10">	
+	<!-- datepicker -->
+	<div class="col-md-4 datetimepicker input-group date mb-lg">
+   	<input type="text" class="form-control" id="toDatePicker" placeholder='Projection Date'></input>
+       <span class="input-group-addon">
+       <span class="fa fa-calendar"></span>
+       </span>
+   	</div>
 
 	<div id="chartDisplay"></div>
-	
-	<table>
-		<th>Simulation</th>
+</div>
 
+<div class="col-md-10">	
+<div id="panel-2" class="panel panel-warning">
+<div class="panel-heading"> My Budgets</div>
+<div class="panel-body">
+	<table class="table table-striped table-hover">
+		<thead>
+		<tr>
+		<th><i class="fa fa-bullhorn"></i> Budget Name</th>
+		<th><i class="fa fa-calendar"></i> Created At</th>
+		<th><i class="fa fa-money"></i> Daily Change</th>
+		<th> Delete </th>
+		</tr>
+	</thead>
+	<tbody>
 		@foreach($simulations as $simulation)
 			<tr>	
-				<td><a href="{{ action('SimulationsController@show', $simulation->id) }}">{{{ $simulation->title }}}</a></td>
+			<td><a href="{{ action('SimulationsController@show', $simulation->id) }}">{{{ $simulation->title }}}</a></td>
+			<td>{{ $simulation->created_at}}}</td>
+			<td>{{{ $simulation->approx_daily_value}}}</td>
+			<td><button class="btn btn-danger btn-xs" type="submit"><i class="fa fa-trash-o"></i></button></td>
 			</tr>
 		@endforeach
+	</tbody>
 	</table>
+</div>
+</div>
+</div>
+</div>
 @stop
 
 @section('bottom-script')
@@ -54,7 +87,6 @@
 					newDate.add(day, 'days');
 					// chartCategories.push(newDate.fromNow());
 					chartCategories.push(newDate.format('M-D-YY'));
-
 				});
 								
 				simulations.forEach(function (simulation, index, array) {
@@ -94,6 +126,5 @@
 			        series: chartSeries
 			    });
 		    });
-
 	</script>
 @stop

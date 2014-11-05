@@ -80,7 +80,7 @@
                         <div class="content">
                             <div class="main">
                                 <h4 class="text-center">Experience</h4>
-                                <p>Recent High School graduate =</p>
+                                <p>Recent High School graduate</p>
                                 <h4 class="text-center">Areas of Expertise</h4>
                                 <p>PHP, HTML, JavaScript, Laravel, MySQL</p>
                             </div>
